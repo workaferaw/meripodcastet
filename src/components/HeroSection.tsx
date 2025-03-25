@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { SITE_NAME } from '@/utils/constants';
@@ -75,12 +75,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className, onPlay }) => {
         </TransitionWrapper>
       </div>
       
-      {/* Scroll indicator */}
+      {/* Scroll indicator - replaced with down arrow */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
         <span className="text-sm text-muted-foreground mb-2">Scroll to explore</span>
-        <div className="w-5 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
-          <div className="w-1 h-2 bg-muted-foreground rounded-full mt-2 animate-[slide-down_1.5s_ease-in-out_infinite]" />
-        </div>
+        <ChevronDown className="h-8 w-8 text-primary" />
       </div>
     </section>
   );
