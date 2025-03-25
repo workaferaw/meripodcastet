@@ -5,7 +5,7 @@ import { Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Article } from '@/types';
 import BlurImage from '@/components/ui/BlurImage';
-import Badge from '@/components/ui/Badge';
+import { Badge } from '@/components/ui/badge';
 import { formatDate } from '@/utils/animations';
 
 interface ArticleCardProps {
@@ -63,15 +63,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{article.excerpt}</p>
         
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <img 
-              src={article.author.avatar}
-              alt={article.author.name}
-              className="w-6 h-6 rounded-full object-cover"
-            />
-            <span className="text-sm">{article.author.name}</span>
-          </div>
-          
           <div className="flex items-center space-x-4 text-xs text-muted-foreground">
             <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
             

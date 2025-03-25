@@ -5,12 +5,13 @@ import { Headphones, Twitter, Instagram, Youtube, Rss, ArrowRight } from 'lucide
 import { NAVIGATION_ITEMS, SITE_NAME } from '@/utils/constants';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-muted/30 border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
@@ -58,6 +59,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
+          <Separator orientation="vertical" className="hidden md:block mx-auto h-auto" />
+
           {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="font-display font-medium text-base">Quick Links</h3>
@@ -74,11 +77,13 @@ const Footer: React.FC = () => {
             </nav>
           </div>
 
+          <Separator orientation="vertical" className="hidden md:block mx-auto h-auto" />
+
           {/* Listening Platforms */}
           <div className="space-y-4">
             <h3 className="font-display font-medium text-base">Listen On</h3>
             <div className="flex flex-col space-y-2">
-              {['Apple Podcasts', 'Spotify', 'Google Podcasts', 'Overcast', 'Pocket Casts'].map((platform) => (
+              {['Apple Podcasts', 'Spotify', 'YouTube', 'Overcast', 'Pocket Casts'].map((platform) => (
                 <a 
                   key={platform} 
                   href="#" 
@@ -89,6 +94,8 @@ const Footer: React.FC = () => {
               ))}
             </div>
           </div>
+
+          <Separator orientation="vertical" className="hidden md:block mx-auto h-auto" />
 
           {/* Newsletter */}
           <div className="space-y-4">
