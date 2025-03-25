@@ -21,7 +21,7 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ episodes }) => {
       <div className="container mx-auto">
         <TransitionWrapper>
           <div className="flex flex-col md:flex-row justify-between items-baseline mb-8">
-            <h2 className="text-3xl font-display font-bold">Featured Episodes</h2>
+            <h2 className="text-3xl font-display font-bold">Episodes</h2>
             <a 
               href="/episodes" 
               className="text-primary hover:text-primary/80 transition-colors mt-2 md:mt-0"

@@ -92,12 +92,12 @@ const Index = () => {
               }
             ].map((item, index) => (
               <TransitionWrapper key={index} delay={index * 100}>
-                <div className="glass-card p-6 rounded-xl h-full flex flex-col">
-                  <div className="mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-display font-medium mb-2">{item.title}</h3>
+                <div className="glass-card p-6 rounded-xl h-full flex flex-col group transition-all-ease hover:translate-y-[-8px] hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                  <div className="mb-4 group-hover:text-primary transition-colors">{item.icon}</div>
+                  <h3 className="text-xl font-display font-medium mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
                   <p className="text-muted-foreground mb-4 flex-grow">{item.description}</p>
-                  <Link to={item.link} className="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
-                    {item.linkText} <ArrowRight className="ml-1 w-4 h-4" />
+                  <Link to={item.link} className="inline-flex items-center text-primary hover:text-primary/80 transition-colors group-hover:text-primary group-hover:gap-1">
+                    {item.linkText} <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </TransitionWrapper>
