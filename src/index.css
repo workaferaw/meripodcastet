@@ -7,32 +7,32 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 229 84% 5%;
+    --background: 240 10% 5%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 229 84% 5%;
+    --card: 240 10% 7%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 229 84% 5%;
+    --popover: 240 10% 7%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 24 85% 54%;
-    --primary-foreground: 210 40% 98%;
+    --primary-foreground: 240 10% 5%;
 
-    --secondary: 229 84% 5%;
+    --secondary: 240 9% 13%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 9% 13%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 229 84% 5%;
+    --accent: 240 9% 13%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 240 9% 15%;
+    --input: 240 9% 15%;
     --ring: 24 85% 54%;
 
     --radius: 1rem;
@@ -54,11 +54,11 @@
 
 @layer utilities {
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+    @apply bg-secondary/70 backdrop-blur-lg border border-white/10 shadow-xl;
   }
   
   .glass-card {
-    @apply bg-white/90 backdrop-blur-md border border-white/30 shadow-md transition-all duration-300 hover:shadow-lg;
+    @apply bg-card/90 backdrop-blur-md border border-white/10 shadow-md transition-all duration-300 hover:shadow-lg;
   }
 
   .text-balance {
@@ -97,16 +97,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 #root {

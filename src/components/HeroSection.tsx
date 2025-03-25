@@ -18,7 +18,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className, onPlay }) => {
       className
     )}>
       {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-muted z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/50 z-0" />
       
       {/* Decorative elements */}
       <div className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
@@ -75,7 +75,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className, onPlay }) => {
         </TransitionWrapper>
       </div>
       
-      {/* Scroll indicator - replaced with down arrow */}
+      {/* Scroll indicator - down arrow */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
         <span className="text-sm text-muted-foreground mb-2">Scroll to explore</span>
         <ChevronDown className="h-8 w-8 text-primary" />

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Badge as ShadcnBadge, badgeVariants } from '@/components/ui/badge';
+import { Badge as ShadcnBadge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
 type BadgeVariant = 'default' | 'secondary' | 'outline' | 'destructive';
