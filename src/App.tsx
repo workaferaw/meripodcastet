@@ -11,7 +11,7 @@ import Episodes from "./pages/Episodes";
 import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import About from "./pages/About";
-import Partners from "./pages/Partners";
+import Partners from "./pages/Partners"; // Updated import
 import SuggestGuest from "./pages/SuggestGuest";
 import NotFound from "./pages/NotFound";
 import Guests from "./pages/Guests";
