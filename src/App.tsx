@@ -11,7 +11,7 @@ import Episodes from "./pages/Episodes";
 import Articles from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import About from "./pages/About";
-import Advertise from "./pages/Advertise";
+import Partners from "./pages/Partners";
 import SuggestGuest from "./pages/SuggestGuest";
 import NotFound from "./pages/NotFound";
 import Guests from "./pages/Guests";
@@ -34,7 +34,7 @@ const App = () => (
               <Route path="/articles" element={<Articles />} />
               <Route path="/articles/:slug" element={<ArticleDetail />} />
               <Route path="/about" element={<About />} />
-              <Route path="/advertise" element={<Advertise />} />
+              <Route path="/partners" element={<Partners />} />
               <Route path="/suggest-guest" element={<SuggestGuest />} />
               <Route path="/guests" element={<Guests />} />
               <Route path="/guests/:guestId" element={<GuestDetail />} />
