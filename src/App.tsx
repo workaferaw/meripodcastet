@@ -25,22 +25,24 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navbar />
-        <main className="min-h-screen pt-16">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/episodes" element={<Episodes />} />
-            <Route path="/articles" element={<Articles />} />
-            <Route path="/articles/:slug" element={<ArticleDetail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/advertise" element={<Advertise />} />
-            <Route path="/suggest-guest" element={<SuggestGuest />} />
-            <Route path="/guests" element={<Guests />} />
-            <Route path="/guests/:guestId" element={<GuestDetail />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="pt-16 flex-grow">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/episodes" element={<Episodes />} />
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/articles/:slug" element={<ArticleDetail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/advertise" element={<Advertise />} />
+              <Route path="/suggest-guest" element={<SuggestGuest />} />
+              <Route path="/guests" element={<Guests />} />
+              <Route path="/guests/:guestId" element={<GuestDetail />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

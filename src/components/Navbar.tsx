@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Search, Command, Headphones, BookOpen, Users, Briefcase } from 'lucide-react';
+import { Menu, X, Search, Command } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   CommandDialog, 
@@ -55,7 +55,7 @@ const Navbar = () => {
               <NavLink 
                 to="/" 
                 className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
+                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive 
                       ? 'text-primary' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
@@ -68,46 +68,43 @@ const Navbar = () => {
               <NavLink 
                 to="/episodes" 
                 className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
+                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive 
                       ? 'text-primary' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`
                 }
               >
-                <Headphones className="w-4 h-4" />
                 Episodes
               </NavLink>
               <NavLink 
                 to="/guests" 
                 className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
+                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive 
                       ? 'text-primary' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`
                 }
               >
-                <Users className="w-4 h-4" />
                 Guests
               </NavLink>
               <NavLink 
                 to="/articles" 
                 className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
+                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive 
                       ? 'text-primary' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`
                 }
               >
-                <BookOpen className="w-4 h-4" />
                 Articles
               </NavLink>
               <NavLink 
                 to="/about" 
                 className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
+                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive 
                       ? 'text-primary' 
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
@@ -115,6 +112,14 @@ const Navbar = () => {
                 }
               >
                 About
+              </NavLink>
+              <NavLink 
+                to="/advertise" 
+                className={({ isActive }) => 
+                  `px-3 py-2 rounded-md text-sm font-medium bg-primary/10 border border-primary/20 text-primary transition-all hover:bg-primary/20 ml-2 animate-pulse`
+                }
+              >
+                Partner with Us
               </NavLink>
             </nav>
             
@@ -158,7 +163,7 @@ const Navbar = () => {
                 <NavLink 
                   to="/" 
                   className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${
+                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive 
                         ? 'text-primary bg-muted/70' 
                         : 'text-foreground hover:bg-muted/50'
@@ -171,46 +176,43 @@ const Navbar = () => {
                 <NavLink 
                   to="/episodes" 
                   className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${
+                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive 
                         ? 'text-primary bg-muted/70' 
                         : 'text-foreground hover:bg-muted/50'
                     }`
                   }
                 >
-                  <Headphones className="w-4 h-4" />
                   Episodes
                 </NavLink>
                 <NavLink 
                   to="/guests" 
                   className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${
+                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive 
                         ? 'text-primary bg-muted/70' 
                         : 'text-foreground hover:bg-muted/50'
                     }`
                   }
                 >
-                  <Users className="w-4 h-4" />
                   Guests
                 </NavLink>
                 <NavLink 
                   to="/articles" 
                   className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${
+                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive 
                         ? 'text-primary bg-muted/70' 
                         : 'text-foreground hover:bg-muted/50'
                     }`
                   }
                 >
-                  <BookOpen className="w-4 h-4" />
                   Articles
                 </NavLink>
                 <NavLink 
                   to="/about" 
                   className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${
+                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive 
                         ? 'text-primary bg-muted/70' 
                         : 'text-foreground hover:bg-muted/50'
@@ -218,6 +220,14 @@ const Navbar = () => {
                   }
                 >
                   About
+                </NavLink>
+                <NavLink 
+                  to="/advertise" 
+                  className={({ isActive }) => 
+                    `px-3 py-2 rounded-md text-sm font-medium bg-primary/10 border border-primary/20 text-primary transition-all`
+                  }
+                >
+                  Partner with Us
                 </NavLink>
               </nav>
             </div>
@@ -234,19 +244,19 @@ const Navbar = () => {
               Home
             </CommandItem>
             <CommandItem onSelect={() => window.location.href = "/episodes"}>
-              <Headphones className="w-4 h-4 mr-2" />
               Episodes
             </CommandItem>
             <CommandItem onSelect={() => window.location.href = "/guests"}>
-              <Users className="w-4 h-4 mr-2" />
               Guests
             </CommandItem>
             <CommandItem onSelect={() => window.location.href = "/articles"}>
-              <BookOpen className="w-4 h-4 mr-2" />
               Articles
             </CommandItem>
             <CommandItem onSelect={() => window.location.href = "/about"}>
               About
+            </CommandItem>
+            <CommandItem onSelect={() => window.location.href = "/advertise"}>
+              Partner with Us
             </CommandItem>
           </CommandGroup>
         </CommandList>
