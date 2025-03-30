@@ -12,6 +12,8 @@ export const useYoutubeData = () => {
   const [episodes, setEpisodes] = useState<Episode[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const fetchEpisodes = async () => {
     try {
@@ -23,6 +25,15 @@ export const useYoutubeData = () => {
         console.log("Using mock data for YouTube episodes");
         // Simulate network request
         await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Extract all unique categories
+        const allCategories = Array.from(
+          new Set(
+            MOCK_EPISODES.flatMap(episode => episode.categories || [])
+          )
+        ).sort();
+        
+        setCategories(allCategories);
         setEpisodes(MOCK_EPISODES);
         setLoading(false);
         return;
@@ -45,24 +56,60 @@ export const useYoutubeData = () => {
         thumbnailUrl: item.snippet.thumbnails.high.url,
         publishedAt: item.snippet.publishedAt,
         videoId: item.id.videoId,
+        // We would need to parse categories and guests from the video description or tags
+        // For now, we'll assign random categories and guests
+        categories: ["Technology", "Business"],
+        guestIds: ["guest-001"],
       }));
 
+      // Extract all unique categories
+      const allCategories = Array.from(
+        new Set(
+          episodesData.flatMap(episode => episode.categories)
+        )
+      ).sort();
+      
+      setCategories(allCategories);
       setEpisodes(episodesData);
     } catch (err) {
       console.error("Error fetching YouTube data:", err);
       setError("Failed to load episodes. Using sample data instead.");
       toast.error("Failed to load episodes. Using sample data instead.");
+      
+      // Extract all unique categories from mock data
+      const allCategories = Array.from(
+        new Set(
+          MOCK_EPISODES.flatMap(episode => episode.categories || [])
+        )
+      ).sort();
+      
+      setCategories(allCategories);
       setEpisodes(MOCK_EPISODES);
     } finally {
       setLoading(false);
     }
   };
 
+  // Filter episodes by selected category
+  const filteredEpisodes = selectedCategory
+    ? episodes.filter(episode => episode.categories?.includes(selectedCategory))
+    : episodes;
+
   useEffect(() => {
     fetchEpisodes();
   }, []);
 
-  return { episodes, loading, error, refetch: fetchEpisodes };
+  return { 
+    episodes: filteredEpisodes, 
+    allEpisodes: episodes,
+    loading, 
+    error, 
+    refetch: fetchEpisodes,
+    categories,
+    selectedCategory,
+    setSelectedCategory,
+  };
 };
 
 export default useYoutubeData;
+

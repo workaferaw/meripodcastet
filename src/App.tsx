@@ -14,6 +14,8 @@ import About from "./pages/About";
 import Advertise from "./pages/Advertise";
 import SuggestGuest from "./pages/SuggestGuest";
 import NotFound from "./pages/NotFound";
+import Guests from "./pages/Guests";
+import GuestDetail from "./pages/GuestDetail";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +35,8 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/advertise" element={<Advertise />} />
             <Route path="/suggest-guest" element={<SuggestGuest />} />
+            <Route path="/guests" element={<Guests />} />
+            <Route path="/guests/:guestId" element={<GuestDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

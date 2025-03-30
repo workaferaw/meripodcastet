@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PlayCircle, Clock, Eye } from 'lucide-react';
+import { PlayCircle, Clock, Eye, Tag } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Episode } from '@/types';
 import BlurImage from '@/components/ui/BlurImage';
-import Badge from '@/components/ui/Badge';
+import { Badge } from '@/components/ui/badge';
 import { formatDate, formatDuration, formatViews } from '@/utils/animations';
 
 interface EpisodeCardProps {
@@ -89,6 +89,20 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({
           <p className="text-muted-foreground text-sm line-clamp-2 mb-3">{episode.description}</p>
         )}
         
+        {!isMinimal && episode.categories && episode.categories.length > 0 && (
+          <div className="flex flex-wrap gap-1 mb-3">
+            {episode.categories.slice(0, 2).map(category => (
+              <Badge key={category} variant="outline" className="text-xs flex items-center gap-1">
+                <Tag className="w-2 h-2" />
+                {category}
+              </Badge>
+            ))}
+            {episode.categories.length > 2 && (
+              <Badge variant="outline" className="text-xs">+{episode.categories.length - 2}</Badge>
+            )}
+          </div>
+        )}
+        
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <time dateTime={episode.publishedAt}>{formatDate(episode.publishedAt)}</time>
           
@@ -105,3 +119,4 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({
 };
 
 export default EpisodeCard;
+

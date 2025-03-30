@@ -8,6 +8,8 @@ export interface Episode {
   videoId: string;
   duration?: string;
   views?: number;
+  categories: string[];
+  guestIds: string[];
 }
 
 export interface Article {
@@ -27,8 +29,18 @@ export interface Article {
 }
 
 export interface Guest {
+  id: string;
   name: string;
-  email: string;
-  topic: string;
-  message: string;
+  email?: string;
+  bio: string;
+  avatarUrl: string;
+  socialLinks: {
+    twitter?: string;
+    linkedin?: string;
+    instagram?: string;
+    website?: string;
+  };
+  topic?: string;
+  message?: string;
 }
+
