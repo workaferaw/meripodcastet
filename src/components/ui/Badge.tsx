@@ -1,24 +1,41 @@
 
 import React from 'react';
-import { Badge as ShadcnBadge } from '@/components/ui/badge';
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from '@/lib/utils';
 
-type BadgeVariant = 'default' | 'secondary' | 'outline' | 'destructive';
-type BadgeSize = 'default' | 'sm' | 'lg';
+const badgeVariants = cva(
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default:
+          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        outline: "text-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
 
-interface BadgeProps {
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {
   children: React.ReactNode;
-  variant?: BadgeVariant;
-  size?: BadgeSize;
-  className?: string;
+  size?: 'default' | 'sm' | 'lg';
 }
 
-const Badge: React.FC<BadgeProps> = ({
-  children,
-  variant = 'default',
+export function Badge({ 
+  className, 
+  variant, 
   size = 'default',
-  className,
-}) => {
+  ...props 
+}: BadgeProps) {
   const sizeClasses = {
     sm: 'text-xs px-2 py-0.5',
     default: 'text-xs px-2.5 py-0.5',
@@ -26,13 +43,8 @@ const Badge: React.FC<BadgeProps> = ({
   };
 
   return (
-    <ShadcnBadge
-      variant={variant}
-      className={cn(sizeClasses[size], className)}
-    >
-      {children}
-    </ShadcnBadge>
+    <div className={cn(badgeVariants({ variant }), sizeClasses[size], className)} {...props} />
   );
-};
+}
 
-export default Badge;
+export { badgeVariants };

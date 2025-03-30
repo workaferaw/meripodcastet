@@ -1,5 +1,4 @@
 
-import { Badge as BadgeComponent, BadgeProps } from "./Badge";
+import { Badge, BadgeProps, badgeVariants } from "./Badge";
 
-// Re-export the Badge component and its props
-export { BadgeComponent as Badge, type BadgeProps };
+export { Badge, BadgeProps, badgeVariants };
