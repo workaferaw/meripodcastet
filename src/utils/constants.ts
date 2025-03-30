@@ -1,7 +1,7 @@
 export const YOUTUBE_CHANNEL_ID = "UC_x5XG1OV2P6uZZ5FSM9Ttw"; // Example: Google Developers channel
 export const YOUTUBE_API_BASE_URL = "https://www.googleapis.com/youtube/v3";
 export const YOUTUBE_EMBED_BASE_URL = "https://www.youtube.com/embed";
-export const SITE_NAME = "Podcastorium";
+export const SITE_NAME = "Meri Podcast";
 export const SITE_DESCRIPTION = "A premium podcast experience";
 
 export const NAVIGATION_ITEMS = [
