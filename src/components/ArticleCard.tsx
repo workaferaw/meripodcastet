@@ -25,7 +25,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
     <Link 
       to={`/articles/${article.slug}`}
       className={cn(
-        'group block overflow-hidden transition-all duration-300',
+        'group block overflow-hidden transition-all duration-300 hover:shadow-lg',
         isFeatured ? 'glass-panel rounded-xl' : 'glass-card rounded-lg',
         className
       )}
@@ -62,14 +62,12 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         
         <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{article.excerpt}</p>
         
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4 text-xs text-muted-foreground">
-            <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
-            
-            <div className="flex items-center space-x-1">
-              <Clock className="w-3 h-3" />
-              <span>{article.readTime} min read</span>
-            </div>
+        <div className="flex items-center text-xs text-muted-foreground">
+          <time dateTime={article.publishedAt} className="mr-4">{formatDate(article.publishedAt)}</time>
+          
+          <div className="flex items-center space-x-1">
+            <Clock className="w-3 h-3" />
+            <span>{article.readTime} min read</span>
           </div>
         </div>
       </div>
