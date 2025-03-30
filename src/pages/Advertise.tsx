@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Mic, Users, BarChart, Zap, CheckCircle2 } from 'lucide-react';
+import { Briefcase, Users, BarChart, Zap, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -15,8 +14,8 @@ const Advertise = () => {
         <div className="container mx-auto px-4">
           <TransitionWrapper>
             <div className="flex items-center justify-center mb-2">
-              <Mic className="w-8 h-8 text-primary mr-2" />
-              <h1 className="text-4xl font-display font-bold text-center">Advertise With Us</h1>
+              <Briefcase className="w-8 h-8 text-primary mr-2" />
+              <h1 className="text-4xl font-display font-bold text-center">Partner With Us</h1>
             </div>
           </TransitionWrapper>
           
@@ -82,13 +81,13 @@ const Advertise = () => {
           <TransitionWrapper>
             <div className="flex items-center justify-center space-x-2 mb-4">
               <BarChart className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl font-display font-bold text-center">Advertising Options</h2>
+              <h2 className="text-3xl font-display font-bold text-center">Partnership Options</h2>
             </div>
           </TransitionWrapper>
           
           <TransitionWrapper delay={100}>
             <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-12">
-              We offer flexible advertising solutions designed to integrate naturally with our content and resonate with our audience.
+              We offer flexible partnership solutions designed to integrate naturally with our content and resonate with our audience.
             </p>
           </TransitionWrapper>
           
@@ -225,12 +224,12 @@ const Advertise = () => {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
           <TransitionWrapper>
-            <h2 className="text-3xl font-display font-bold text-center mb-4">Ready to Reach Our Audience?</h2>
+            <h2 className="text-3xl font-display font-bold text-center mb-4">Ready to Partner With Us?</h2>
           </TransitionWrapper>
           
           <TransitionWrapper delay={100}>
             <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-8">
-              Fill out the form below and our advertising team will get back to you within 48 hours.
+              Fill out the form below and our team will get back to you within 48 hours.
             </p>
           </TransitionWrapper>
           

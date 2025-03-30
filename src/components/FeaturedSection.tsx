@@ -5,6 +5,7 @@ import EpisodeCard from './EpisodeCard';
 import YouTubePlayer from './YouTubePlayer';
 import TransitionWrapper from './TransitionWrapper';
 import { Card, CardContent } from '@/components/ui/card';
+import { Headphones } from 'lucide-react';
 
 interface FeaturedSectionProps {
   episodes: Episode[];
@@ -19,7 +20,10 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ episodes }) => {
         <div className="container mx-auto">
           <TransitionWrapper>
             <div className="flex flex-col md:flex-row justify-between items-baseline mb-8">
-              <h2 className="text-3xl font-display font-bold">Episodes</h2>
+              <div className="flex items-center space-x-2">
+                <Headphones className="w-6 h-6 text-primary" />
+                <h2 className="text-3xl font-display font-bold">Episodes</h2>
+              </div>
               <a 
                 href="/episodes" 
                 className="text-primary hover:text-primary/80 transition-colors mt-2 md:mt-0"
@@ -41,7 +45,10 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ episodes }) => {
       <div className="container mx-auto">
         <TransitionWrapper>
           <div className="flex flex-col md:flex-row justify-between items-baseline mb-8">
-            <h2 className="text-3xl font-display font-bold">Episodes</h2>
+            <div className="flex items-center space-x-2">
+              <Headphones className="w-6 h-6 text-primary" />
+              <h2 className="text-3xl font-display font-bold">Episodes</h2>
+            </div>
             <a 
               href="/episodes" 
               className="text-primary hover:text-primary/80 transition-colors mt-2 md:mt-0"

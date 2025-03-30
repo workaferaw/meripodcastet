@@ -9,10 +9,8 @@ import {
   Rss, 
   ArrowRight, 
   Linkedin, 
-  TiktokIcon, 
   MessageSquare
 } from 'lucide-react';
-import { NAVIGATION_ITEMS } from '@/utils/constants';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
@@ -31,6 +29,25 @@ const Footer: React.FC = () => {
     toast.success('Thanks for subscribing!');
     setEmail('');
   };
+
+  // Footer navigation items for quick access
+  const footerLinks = [
+    { label: 'Episodes', path: '/episodes', icon: <Headphones className="w-3 h-3" /> },
+    { label: 'Articles', path: '/articles', icon: <ArrowRight className="w-3 h-3" /> },
+    { label: 'Guests', path: '/guests', icon: <ArrowRight className="w-3 h-3" /> },
+    { label: 'About', path: '/about', icon: <ArrowRight className="w-3 h-3" /> },
+    { label: 'Partners', path: '/advertise', icon: <ArrowRight className="w-3 h-3" /> },
+    { label: 'Suggest Guests', path: '/suggest-guest', icon: <ArrowRight className="w-3 h-3" /> },
+  ];
+
+  // Podcast platforms
+  const podcastPlatforms = [
+    { name: 'Apple Podcasts', url: 'https://podcasts.apple.com' },
+    { name: 'Spotify', url: 'https://spotify.com' },
+    { name: 'YouTube', url: 'https://youtube.com' },
+    { name: 'Overcast', url: 'https://overcast.fm' },
+    { name: 'Pocket Casts', url: 'https://pocketcasts.com' }
+  ];
 
   return (
     <footer className="bg-muted/30 border-t border-border">
@@ -83,29 +100,6 @@ const Footer: React.FC = () => {
                 <Youtube className="w-5 h-5" />
               </a>
               <a 
-                href="https://tiktok.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-foreground/60 hover:text-primary transition-colors"
-                aria-label="TikTok"
-              >
-                <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
-                  stroke="currentColor"
-                >
-                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
-                  <path d="M15 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                  <path d="M15 8v8a4 4 0 0 1-4 4" />
-                  <path d="M15 8h-2" />
-                  <path d="M9 12v-2" />
-                </svg>
-              </a>
-              <a 
                 href="/rss" 
                 className="text-foreground/60 hover:text-primary transition-colors"
                 aria-label="RSS Feed"
@@ -121,13 +115,13 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h3 className="font-display font-medium text-base">Quick Links</h3>
             <nav className="flex flex-col space-y-2">
-              {NAVIGATION_ITEMS.map((item) => (
+              {footerLinks.map((item) => (
                 <Link 
                   key={item.path} 
                   to={item.path}
                   className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
                 >
-                  <ArrowRight className="w-3 h-3" />
+                  {item.icon}
                   {item.label}
                 </Link>
               ))}
@@ -140,13 +134,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <h3 className="font-display font-medium text-base">Listen On</h3>
             <div className="flex flex-col space-y-2">
-              {[
-                { name: 'Apple Podcasts', url: 'https://podcasts.apple.com' },
-                { name: 'Spotify', url: 'https://spotify.com' },
-                { name: 'YouTube', url: 'https://youtube.com' },
-                { name: 'Overcast', url: 'https://overcast.fm' },
-                { name: 'Pocket Casts', url: 'https://pocketcasts.com' }
-              ].map((platform) => (
+              {podcastPlatforms.map((platform) => (
                 <a 
                   key={platform.name} 
                   href={platform.url} 
