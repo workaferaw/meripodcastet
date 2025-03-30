@@ -1,17 +1,16 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Headphones, Mic, Users, BookOpen } from 'lucide-react';
+import { ArrowRight, Headphones, Book, Users, HandshakeIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import HeroSection from '@/components/HeroSection';
 import FeaturedSection from '@/components/FeaturedSection';
-import EpisodeCard from '@/components/EpisodeCard';
 import ArticleCard from '@/components/ArticleCard';
 import YouTubePlayer from '@/components/YouTubePlayer';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import useYoutubeData from '@/hooks/useYoutubeData';
-import { MOCK_ARTICLES } from '@/utils/constants';
+import { MOCK_ARTICLES, SITE_NAME } from '@/utils/constants';
 
 const Index = () => {
   const { episodes, loading } = useYoutubeData();
@@ -60,48 +59,58 @@ const Index = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         
         <div className="container mx-auto relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: <Headphones className="w-8 h-8 text-primary" />,
-                title: "Listen",
-                description: "Stream our episodes on your favorite platform",
-                link: "/episodes",
-                linkText: "Browse Episodes"
-              },
-              {
-                icon: <BookOpen className="w-8 h-8 text-primary" />,
-                title: "Read",
-                description: "Dive deeper with our insightful articles",
-                link: "/articles",
-                linkText: "Read Articles"
-              },
-              {
-                icon: <Mic className="w-8 h-8 text-primary" />,
-                title: "Advertise",
-                description: "Reach our engaged audience with your brand",
-                link: "/advertise",
-                linkText: "Learn More"
-              },
-              {
-                icon: <Users className="w-8 h-8 text-primary" />,
-                title: "Suggest",
-                description: "Know someone who would be a great guest?",
-                link: "/suggest-guest",
-                linkText: "Suggest a Guest"
-              }
-            ].map((item, index) => (
-              <TransitionWrapper key={index} delay={index * 100}>
-                <div className="glass-card p-6 rounded-xl h-full flex flex-col group transition-all-ease hover:translate-y-[-8px] hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
-                  <div className="mb-4 group-hover:text-primary transition-colors">{item.icon}</div>
-                  <h3 className="text-xl font-display font-medium mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                  <p className="text-muted-foreground mb-4 flex-grow">{item.description}</p>
-                  <Link to={item.link} className="inline-flex items-center text-primary hover:text-primary/80 transition-colors group-hover:text-primary group-hover:gap-1">
-                    {item.linkText} <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </TransitionWrapper>
-            ))}
+          <div className="flex flex-col items-center justify-center mb-8">
+            <h2 className="text-3xl font-display font-bold text-center mb-6">Quick Links</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto w-full">
+              <Button asChild size="lg" className="h-auto py-4 gap-3 flex-col">
+                <Link to="/episodes">
+                  <Headphones className="w-6 h-6" />
+                  <span>Episodes</span>
+                </Link>
+              </Button>
+              
+              <Button asChild size="lg" className="h-auto py-4 gap-3 flex-col">
+                <Link to="/articles">
+                  <Book className="w-6 h-6" />
+                  <span>Articles</span>
+                </Link>
+              </Button>
+              
+              <Button asChild size="lg" className="h-auto py-4 gap-3 flex-col">
+                <Link to="/advertise">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    className="w-6 h-6"
+                  >
+                    <path d="M16 16.5v1a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-1" />
+                    <rect width="20" height="12" x="2" y="4" rx="2" />
+                    <path d="M6 12v2" />
+                    <path d="M18 12v2" />
+                    <path d="M12 4v2" />
+                    <path d="M8 4v2" />
+                    <path d="M16 4v2" />
+                    <path d="M8 16.5V18" />
+                    <path d="M16 16.5V18" />
+                  </svg>
+                  <span>Partners</span>
+                </Link>
+              </Button>
+              
+              <Button asChild size="lg" className="h-auto py-4 gap-3 flex-col">
+                <Link to="/suggest-guest">
+                  <Users className="w-6 h-6" />
+                  <span>Suggest Guests</span>
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

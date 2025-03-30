@@ -4,6 +4,7 @@ import { Episode } from '@/types';
 import EpisodeCard from './EpisodeCard';
 import YouTubePlayer from './YouTubePlayer';
 import TransitionWrapper from './TransitionWrapper';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface FeaturedSectionProps {
   episodes: Episode[];
@@ -13,7 +14,26 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ episodes }) => {
   const [activeEpisode, setActiveEpisode] = useState<Episode | null>(episodes[0] || null);
   
   if (episodes.length === 0) {
-    return null;
+    return (
+      <section id="episodes" className="section-padding bg-muted/30">
+        <div className="container mx-auto">
+          <TransitionWrapper>
+            <div className="flex flex-col md:flex-row justify-between items-baseline mb-8">
+              <h2 className="text-3xl font-display font-bold">Episodes</h2>
+              <a 
+                href="/episodes" 
+                className="text-primary hover:text-primary/80 transition-colors mt-2 md:mt-0"
+              >
+                View all episodes →
+              </a>
+            </div>
+          </TransitionWrapper>
+          <div className="p-8 text-center">
+            <p className="text-muted-foreground">No episodes available yet. Check back soon!</p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -41,10 +61,12 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ episodes }) => {
                   title={activeEpisode.title}
                   className="rounded-xl overflow-hidden shadow-xl"
                 />
-                <div className="space-y-2">
-                  <h3 className="text-xl font-display font-medium">{activeEpisode.title}</h3>
-                  <p className="text-muted-foreground">{activeEpisode.description}</p>
-                </div>
+                <Card>
+                  <CardContent className="pt-6">
+                    <h3 className="text-xl font-display font-medium">{activeEpisode.title}</h3>
+                    <p className="text-muted-foreground mt-2">{activeEpisode.description}</p>
+                  </CardContent>
+                </Card>
               </div>
             )}
           </TransitionWrapper>
@@ -59,7 +81,7 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ episodes }) => {
                   episode={episode}
                   index={index}
                   variant="minimal"
-                  className={`cursor-pointer ${activeEpisode?.id === episode.id ? 'ring-2 ring-primary' : ''}`}
+                  className={`cursor-pointer transition-all ${activeEpisode?.id === episode.id ? 'ring-2 ring-primary scale-[1.02]' : 'hover:scale-[1.01]'}`}
                   onClick={() => setActiveEpisode(episode)}
                 />
               ))}
