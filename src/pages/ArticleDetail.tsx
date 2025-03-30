@@ -52,33 +52,6 @@ const ArticleDetail = () => {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full pt-20">
-        <Sidebar className="hidden md:flex bg-background border-r">
-          <SidebarContent>
-            <div className="px-4 py-4 border-b border-border">
-              <Link to="/articles" className="text-lg font-semibold flex items-center text-primary">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                All Articles
-              </Link>
-            </div>
-            <SidebarMenu>
-              {otherArticles.map((a) => (
-                <SidebarMenuItem key={a.id}>
-                  <SidebarMenuButton 
-                    asChild
-                    isActive={a.slug === slug}
-                    tooltip={a.title}
-                  >
-                    <Link to={`/articles/${a.slug}`} className="flex items-center justify-between">
-                      <span className="truncate">{a.title}</span>
-                      <ChevronRight className="h-4 w-4 ml-2 flex-shrink-0" />
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarContent>
-        </Sidebar>
-        
         <SidebarInset>
           <article className="w-full px-4 md:px-8 pb-16">
             {/* Small screen back button */}
@@ -156,6 +129,33 @@ const ArticleDetail = () => {
             )}
           </article>
         </SidebarInset>
+        
+        <Sidebar className="hidden md:flex bg-background border-l" side="right">
+          <SidebarContent>
+            <div className="px-4 py-4 border-b border-border">
+              <Link to="/articles" className="text-lg font-semibold flex items-center text-primary">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                All Articles
+              </Link>
+            </div>
+            <SidebarMenu>
+              {otherArticles.map((a) => (
+                <SidebarMenuItem key={a.id}>
+                  <SidebarMenuButton 
+                    asChild
+                    isActive={a.slug === slug}
+                    tooltip={a.title}
+                  >
+                    <Link to={`/articles/${a.slug}`} className="flex items-center justify-between">
+                      <span className="truncate">{a.title}</span>
+                      <ChevronRight className="h-4 w-4 ml-2 flex-shrink-0" />
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarContent>
+        </Sidebar>
       </div>
     </SidebarProvider>
   );
