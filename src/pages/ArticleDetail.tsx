@@ -6,7 +6,6 @@ import { MOCK_ARTICLES } from '@/utils/constants';
 import { formatDate } from '@/utils/animations';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import BlurImage from '@/components/ui/BlurImage';
-import { Badge } from '@/components/ui/badge';
 import ArticleCard from '@/components/ArticleCard';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -66,7 +65,6 @@ const ArticleDetail = () => {
             </div>
             
             <TransitionWrapper delay={100}>
-              <Badge className="mb-4">{article.category}</Badge>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">{article.title}</h1>
             </TransitionWrapper>
             

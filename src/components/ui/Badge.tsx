@@ -30,7 +30,7 @@ export interface BadgeProps
   size?: 'default' | 'sm' | 'lg';
 }
 
-export function Badge({ 
+function Badge({ 
   className, 
   variant, 
   size = 'default',
@@ -47,4 +47,4 @@ export function Badge({
   );
 }
 
-export { badgeVariants };
+export { Badge, badgeVariants };

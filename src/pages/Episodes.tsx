@@ -10,7 +10,6 @@ import useYoutubeData from '@/hooks/useYoutubeData';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Episode } from '@/types';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { findGuestsByIds } from '@/utils/guestData';
 import GuestCard from '@/components/GuestCard';
 
@@ -76,18 +75,31 @@ const Episodes = () => {
           
           {categories.length > 0 && (
             <TransitionWrapper delay={300}>
-              <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
-                {categories.map(category => (
-                  <Badge 
-                    key={category}
-                    variant={selectedCategory === category ? "default" : "outline"}
-                    className="cursor-pointer px-4 py-2 text-sm whitespace-nowrap"
-                    onClick={() => handleCategoryClick(category)}
-                  >
-                    <Tag className="w-3 h-3 mr-1" />
-                    {category}
-                  </Badge>
-                ))}
+              <div className="max-w-3xl mx-auto mb-6">
+                <h3 className="text-center text-sm font-medium uppercase tracking-wider text-muted-foreground mb-3">Browse by sector</h3>
+                <div className="overflow-x-auto pb-2">
+                  <div className="flex gap-2 justify-center">
+                    <Button 
+                      variant={selectedCategory === null ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setSelectedCategory(null)}
+                      className="whitespace-nowrap"
+                    >
+                      All Episodes
+                    </Button>
+                    {categories.map(category => (
+                      <Button 
+                        key={category}
+                        variant={selectedCategory === category ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => handleCategoryClick(category)}
+                        className="whitespace-nowrap"
+                      >
+                        {category}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </TransitionWrapper>
           )}
@@ -137,15 +149,6 @@ const Episodes = () => {
               <div className="p-4">
                 <h2 className="text-xl font-display font-medium mb-2">{selectedEpisode.title}</h2>
                 <p className="text-muted-foreground mb-4">{selectedEpisode.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {selectedEpisode.categories.map(category => (
-                    <Badge key={category} variant="outline" className="flex items-center gap-1">
-                      <Tag className="w-3 h-3" />
-                      {category}
-                    </Badge>
-                  ))}
-                </div>
                 
                 {selectedEpisode.guestIds && selectedEpisode.guestIds.length > 0 && (
                   <div>

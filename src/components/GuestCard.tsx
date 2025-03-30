@@ -3,8 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Guest } from '@/types';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { ExternalLink, FileText, Linkedin, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { 
+  Dialog, 
+  DialogTrigger, 
+  DialogContent
+} from '@/components/ui/dialog';
 
 interface GuestCardProps {
   guest: Guest;
@@ -54,14 +59,18 @@ const GuestCard: React.FC<GuestCardProps> = ({ guest, className, compact = false
           </Avatar>
           <div>
             <h3 className="text-lg font-display font-medium">{name}</h3>
-            {socialLinks && Object.keys(socialLinks).length > 0 && (
+            {socialLinks && (
               <div className="flex space-x-2 mt-1">
-                {socialLinks.twitter && (
-                  <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-                    <ExternalLink className="h-4 w-4" />
+                {socialLinks.linkedin && (
+                  <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                    <Linkedin className="h-4 w-4" />
                   </a>
                 )}
-                {/* Add other social icons here */}
+                {socialLinks.website && (
+                  <a href={socialLinks.website} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                    <Globe className="h-4 w-4" />
+                  </a>
+                )}
               </div>
             )}
           </div>
@@ -69,13 +78,57 @@ const GuestCard: React.FC<GuestCardProps> = ({ guest, className, compact = false
         
         <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{bio}</p>
         
-        <Link 
-          to={`/guests/${guest.id}`}
-          className="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors group"
-        >
-          View Profile
-          <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </Link>
+        <Dialog>
+          <DialogTrigger asChild>
+            <button className="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors">
+              <FileText className="mr-1 w-4 h-4" />
+              View Profile
+            </button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[550px] max-h-[80vh] overflow-y-auto">
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <Avatar className="h-16 w-16">
+                  <AvatarImage src={avatarUrl} alt={name} />
+                  <AvatarFallback className="text-lg">{initials}</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h2 className="text-xl font-display font-medium">{name}</h2>
+                  {socialLinks && (
+                    <div className="flex space-x-3 mt-2">
+                      {socialLinks.linkedin && (
+                        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                          <Linkedin className="h-5 w-5" />
+                        </a>
+                      )}
+                      {socialLinks.website && (
+                        <a href={socialLinks.website} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                          <Globe className="h-5 w-5" />
+                        </a>
+                      )}
+                      {socialLinks.twitter && (
+                        <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
+                          <ExternalLink className="h-5 w-5" />
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="prose prose-invert max-w-none">
+                <p>{bio}</p>
+              </div>
+              <div className="pt-4">
+                <Link 
+                  to={`/guests/${guest.id}`}
+                  className="text-primary hover:underline"
+                >
+                  View full profile page
+                </Link>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );
