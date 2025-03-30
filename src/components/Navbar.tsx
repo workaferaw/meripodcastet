@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search, Command } from 'lucide-react';
@@ -10,13 +9,13 @@ import {
   CommandGroup, 
   CommandItem 
 } from '@/components/ui/command';
-import useMobile from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCommandOpen, setIsCommandOpen] = useState(false);
   const location = useLocation();
-  const isMobile = useMobile();
+  const isMobile = useIsMobile();
   
   // Close mobile menu when route changes
   useEffect(() => {
