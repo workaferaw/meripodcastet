@@ -5,7 +5,6 @@ import { Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Article } from '@/types';
 import BlurImage from '@/components/ui/BlurImage';
-import { Badge } from '@/components/ui/badge';
 import { formatDate } from '@/utils/animations';
 
 interface ArticleCardProps {
@@ -40,12 +39,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        <div className="absolute top-3 left-3">
-          <Badge variant="default" className="bg-accent/90 backdrop-blur-sm text-accent-foreground">
-            {article.category}
-          </Badge>
-        </div>
       </div>
       
       <div className={cn(

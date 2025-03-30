@@ -12,6 +12,7 @@ import { Episode } from '@/types';
 import { Button } from '@/components/ui/button';
 import { findGuestsByIds } from '@/utils/guestData';
 import GuestCard from '@/components/GuestCard';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Episodes = () => {
   const { 
@@ -77,29 +78,31 @@ const Episodes = () => {
             <TransitionWrapper delay={300}>
               <div className="max-w-3xl mx-auto mb-6">
                 <h3 className="text-center text-sm font-medium uppercase tracking-wider text-muted-foreground mb-3">Browse by sector</h3>
-                <div className="overflow-x-auto pb-2">
-                  <div className="flex gap-2 justify-center">
-                    <Button 
-                      variant={selectedCategory === null ? "default" : "outline"}
-                      size="sm"
-                      onClick={() => setSelectedCategory(null)}
-                      className="whitespace-nowrap"
-                    >
-                      All Episodes
-                    </Button>
-                    {categories.map(category => (
+                <Card className="bg-card/50 border-border/50">
+                  <CardContent className="p-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                       <Button 
-                        key={category}
-                        variant={selectedCategory === category ? "default" : "outline"}
+                        variant={selectedCategory === null ? "default" : "outline"}
                         size="sm"
-                        onClick={() => handleCategoryClick(category)}
-                        className="whitespace-nowrap"
+                        onClick={() => setSelectedCategory(null)}
+                        className="w-full"
                       >
-                        {category}
+                        All Episodes
                       </Button>
-                    ))}
-                  </div>
-                </div>
+                      {categories.map(category => (
+                        <Button 
+                          key={category}
+                          variant={selectedCategory === category ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => handleCategoryClick(category)}
+                          className="w-full"
+                        >
+                          {category}
+                        </Button>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </TransitionWrapper>
           )}
