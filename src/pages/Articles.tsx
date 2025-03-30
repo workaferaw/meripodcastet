@@ -1,10 +1,13 @@
+
 import React, { useState } from 'react';
-import { BookOpen, Search } from 'lucide-react';
+import { BookOpen, Search, Clock } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import ArticleCard from '@/components/ArticleCard';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import { MOCK_ARTICLES } from '@/utils/constants';
 import { Card, CardContent } from '@/components/ui/card';
+import { formatDate } from '@/utils/animations';
+import { Link } from 'react-router-dom';
 
 const Articles = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -16,6 +19,11 @@ const Articles = () => {
     article.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
     article.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  
+  // Sort articles by date (newest first) for the recent articles list
+  const recentArticles = [...MOCK_ARTICLES].sort((a, b) => 
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  ).slice(0, 5);
   
   return (
     <>
@@ -30,7 +38,7 @@ const Articles = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <TransitionWrapper delay={100} className="md:col-span-1">
-              <Card className="bg-card/80 backdrop-blur-sm border border-border/50 sticky top-20">
+              <Card className="bg-card/80 backdrop-blur-sm border border-white/10 shadow-md sticky top-20">
                 <CardContent className="p-4">
                   <div className="relative mb-4">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
@@ -44,16 +52,24 @@ const Articles = () => {
                   </div>
                   
                   <div className="space-y-3">
-                    <h3 className="font-medium text-sm uppercase tracking-wider text-muted-foreground">Categories</h3>
-                    <ul className="space-y-1.5">
-                      {Array.from(new Set(MOCK_ARTICLES.map(article => article.category))).map((category, index) => (
-                        <li key={index}>
-                          <button 
-                            onClick={() => setSearchQuery(category)}
-                            className={`text-sm hover:text-primary transition-colors ${searchQuery === category ? 'text-primary font-medium' : 'text-foreground'}`}
+                    <h3 className="font-medium text-sm uppercase tracking-wider text-muted-foreground">Recent Articles</h3>
+                    <ul className="space-y-3">
+                      {recentArticles.map((article) => (
+                        <li key={article.id} className="border-b border-border/50 pb-3 last:border-0 last:pb-0">
+                          <Link 
+                            to={`/articles/${article.slug}`}
+                            className="group"
                           >
-                            {category}
-                          </button>
+                            <h4 className="text-sm font-medium line-clamp-2 group-hover:text-primary transition-colors">
+                              {article.title}
+                            </h4>
+                            <div className="flex items-center mt-1 text-xs text-muted-foreground">
+                              <Clock className="w-3 h-3 mr-1" />
+                              <time dateTime={article.publishedAt}>
+                                {formatDate(article.publishedAt)}
+                              </time>
+                            </div>
+                          </Link>
                         </li>
                       ))}
                     </ul>
