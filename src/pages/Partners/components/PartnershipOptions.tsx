@@ -70,8 +70,8 @@ const PartnershipOptions = () => {
                     ))}
                   </ul>
                   <Button 
-                    className={`w-full ${option.isGlowing ? 'animate-pulse shadow-[0_0_10px_rgba(255,153,0,0.4)]' : ''}`} 
-                    variant={option.isGlowing ? "default" : "outline"}
+                    className={`w-full ${option.isGlowing ? 'bg-transparent border border-primary/20 text-primary hover:bg-primary/10' : ''}`} 
+                    variant={option.isGlowing ? "outline" : "outline"}
                   >
                     Get Started
                   </Button>
