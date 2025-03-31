@@ -1,40 +1,8 @@
 
 import React from 'react';
-import { BarChart3, PlayCircle, Eye, Video, BarChart2 } from 'lucide-react';
+import { BarChart3, PlayCircle, Eye, Video, BarChart2, Youtube, Instagram, Twitter, Linkedin, Users } from 'lucide-react';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-
-// Sample metrics data
-const viewsData = [
-  { month: 'Jan', views: 24000 },
-  { month: 'Feb', views: 28500 },
-  { month: 'Mar', views: 32000 },
-  { month: 'Apr', views: 38000 },
-  { month: 'May', views: 42000 },
-  { month: 'Jun', views: 48000 },
-  { month: 'Jul', views: 53000 },
-  { month: 'Aug', views: 61000 },
-  { month: 'Sep', views: 67000 },
-  { month: 'Oct', views: 72000 },
-  { month: 'Nov', views: 76000 },
-  { month: 'Dec', views: 82000 },
-];
-
-const watchTimeData = [
-  { month: 'Jan', hours: 8200 },
-  { month: 'Feb', hours: 9500 },
-  { month: 'Mar', hours: 11000 },
-  { month: 'Apr', hours: 12500 },
-  { month: 'May', hours: 14800 },
-  { month: 'Jun', hours: 16200 },
-  { month: 'Jul', hours: 18500 },
-  { month: 'Aug', hours: 21000 },
-  { month: 'Sep', hours: 23500 },
-  { month: 'Oct', hours: 26000 },
-  { month: 'Nov', hours: 28500 },
-  { month: 'Dec', hours: 31000 },
-];
 
 const AudienceMetrics = () => {
   return (
@@ -53,7 +21,61 @@ const AudienceMetrics = () => {
           </p>
         </TransitionWrapper>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
+          <TransitionWrapper delay={100}>
+            <Card className="border-white/10 overflow-hidden h-full glass-card">
+              <CardHeader className="pb-2">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg font-medium">Social Media Following</CardTitle>
+                  <div className="flex space-x-1">
+                    <Youtube className="w-5 h-5 text-red-500" />
+                    <Instagram className="w-5 h-5 text-pink-500" />
+                    <Twitter className="w-5 h-5 text-blue-400" />
+                  </div>
+                </div>
+                <CardDescription>Combined followers across platforms</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold mb-1">370K+</div>
+                <p className="text-xs text-primary/80">+8% from last month</p>
+              </CardContent>
+            </Card>
+          </TransitionWrapper>
+          
+          <TransitionWrapper delay={200}>
+            <Card className="border-white/10 overflow-hidden h-full glass-card">
+              <CardHeader className="pb-2">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg font-medium">YouTube Subscribers</CardTitle>
+                  <Youtube className="w-6 h-6 text-red-500" />
+                </div>
+                <CardDescription>Growing community of engaged viewers</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold mb-1">155K+</div>
+                <p className="text-xs text-primary/80">+12% from last month</p>
+              </CardContent>
+            </Card>
+          </TransitionWrapper>
+          
+          <TransitionWrapper delay={300}>
+            <Card className="border-white/10 overflow-hidden h-full glass-card">
+              <CardHeader className="pb-2">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg font-medium">Total Viewers</CardTitle>
+                  <Users className="w-6 h-6 text-primary/80" />
+                </div>
+                <CardDescription>Monthly reach across all platforms</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold mb-1">3M+</div>
+                <p className="text-xs text-primary/80">+15% from last month</p>
+              </CardContent>
+            </Card>
+          </TransitionWrapper>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
           {[
             {
               title: "Watch Hours",
@@ -84,7 +106,7 @@ const AudienceMetrics = () => {
               trend: "+5% from last month"
             },
           ].map((metric, index) => (
-            <TransitionWrapper key={index} delay={index * 100}>
+            <TransitionWrapper key={index} delay={400 + index * 100}>
               <Card className="border-white/10 overflow-hidden h-full glass-card">
                 <CardHeader className="pb-2">
                   <div className="flex justify-between items-start">
@@ -100,82 +122,6 @@ const AudienceMetrics = () => {
               </Card>
             </TransitionWrapper>
           ))}
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <TransitionWrapper delay={200}>
-            <Card className="border-white/10 overflow-hidden h-full glass-card">
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Eye className="w-5 h-5 mr-2 text-primary" />
-                  Monthly Views
-                </CardTitle>
-                <CardDescription>Growing audience reach over the last 12 months</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="h-80">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={viewsData}
-                      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                      <defs>
-                        <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8}/>
-                          <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0.1}/>
-                        </linearGradient>
-                      </defs>
-                      <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
-                      <YAxis stroke="hsl(var(--muted-foreground))" />
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
-                      <Area 
-                        type="monotone" 
-                        dataKey="views" 
-                        stroke="hsl(var(--primary))" 
-                        fillOpacity={1} 
-                        fill="url(#colorViews)" 
-                      />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
-          </TransitionWrapper>
-          
-          <TransitionWrapper delay={300}>
-            <Card className="border-white/10 overflow-hidden h-full glass-card">
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <PlayCircle className="w-5 h-5 mr-2 text-primary" />
-                  Watch Time (Hours)
-                </CardTitle>
-                <CardDescription>Growing engagement depth over the last 12 months</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="h-80">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={watchTimeData}
-                      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                      <defs>
-                        <linearGradient id="colorHours" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.8}/>
-                          <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0.1}/>
-                        </linearGradient>
-                      </defs>
-                      <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
-                      <YAxis stroke="hsl(var(--muted-foreground))" />
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
-                      <Area 
-                        type="monotone" 
-                        dataKey="hours" 
-                        stroke="hsl(var(--primary))" 
-                        fillOpacity={1} 
-                        fill="url(#colorHours)" 
-                      />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
-          </TransitionWrapper>
         </div>
       </div>
     </section>
