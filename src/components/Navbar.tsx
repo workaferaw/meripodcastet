@@ -12,6 +12,54 @@ import {
 } from '@/components/ui/command';
 import { useIsMobile } from '@/hooks/use-mobile';
 
+// Navigation items array to avoid duplication
+const navigationItems = [
+  { path: '/', label: 'Home', exact: true },
+  { path: '/episodes', label: 'Episodes' },
+  { path: '/guests', label: 'Guests' },
+  { path: '/articles', label: 'Articles' },
+  { path: '/about', label: 'About' },
+];
+
+// Partner link is styled differently
+const partnerItem = { path: '/partners', label: 'Partner with Us' };
+
+// NavItem component for reusability
+const NavItem = ({ item, isMobile = false }) => {
+  const { path, label, exact } = item;
+  
+  if (path === partnerItem.path) {
+    return (
+      <NavLink 
+        to={path} 
+        className={({ isActive }) => 
+          `px-3 py-2 rounded-md text-sm font-medium bg-primary/10 border border-primary/20 text-primary transition-all ${!isMobile ? 'hover:bg-primary/20 ml-2 animate-pulse' : ''}`
+        }
+      >
+        {label}
+      </NavLink>
+    );
+  }
+  
+  return (
+    <NavLink 
+      to={path} 
+      className={({ isActive }) => 
+        `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+          isActive 
+            ? isMobile ? 'text-primary bg-muted/70' : 'text-primary'
+            : isMobile 
+              ? 'text-foreground hover:bg-muted/50'
+              : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+        }`
+      }
+      end={exact}
+    >
+      {label}
+    </NavLink>
+  );
+};
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCommandOpen, setIsCommandOpen] = useState(false);
@@ -39,6 +87,11 @@ const Navbar = () => {
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Command item handler for navigation
+  const handleCommandSelect = (path) => {
+    window.location.href = path;
+  };
   
   return (
     <>
@@ -52,75 +105,10 @@ const Navbar = () => {
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-1">
-              <NavLink 
-                to="/" 
-                className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive 
-                      ? 'text-primary' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                  }`
-                }
-                end
-              >
-                Home
-              </NavLink>
-              <NavLink 
-                to="/episodes" 
-                className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive 
-                      ? 'text-primary' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                  }`
-                }
-              >
-                Episodes
-              </NavLink>
-              <NavLink 
-                to="/guests" 
-                className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive 
-                      ? 'text-primary' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                  }`
-                }
-              >
-                Guests
-              </NavLink>
-              <NavLink 
-                to="/articles" 
-                className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive 
-                      ? 'text-primary' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                  }`
-                }
-              >
-                Articles
-              </NavLink>
-              <NavLink 
-                to="/about" 
-                className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive 
-                      ? 'text-primary' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                  }`
-                }
-              >
-                About
-              </NavLink>
-              <NavLink 
-                to="/partners" 
-                className={({ isActive }) => 
-                  `px-3 py-2 rounded-md text-sm font-medium bg-primary/10 border border-primary/20 text-primary transition-all hover:bg-primary/20 ml-2 animate-pulse`
-                }
-              >
-                Partner with Us
-              </NavLink>
+              {navigationItems.map((item) => (
+                <NavItem key={item.path} item={item} />
+              ))}
+              <NavItem item={partnerItem} />
             </nav>
             
             {/* Right-side Actions */}
@@ -160,75 +148,10 @@ const Navbar = () => {
           <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-lg">
             <div className="container px-4 py-3">
               <nav className="flex flex-col space-y-2">
-                <NavLink 
-                  to="/" 
-                  className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isActive 
-                        ? 'text-primary bg-muted/70' 
-                        : 'text-foreground hover:bg-muted/50'
-                    }`
-                  }
-                  end
-                >
-                  Home
-                </NavLink>
-                <NavLink 
-                  to="/episodes" 
-                  className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isActive 
-                        ? 'text-primary bg-muted/70' 
-                        : 'text-foreground hover:bg-muted/50'
-                    }`
-                  }
-                >
-                  Episodes
-                </NavLink>
-                <NavLink 
-                  to="/guests" 
-                  className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isActive 
-                        ? 'text-primary bg-muted/70' 
-                        : 'text-foreground hover:bg-muted/50'
-                    }`
-                  }
-                >
-                  Guests
-                </NavLink>
-                <NavLink 
-                  to="/articles" 
-                  className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isActive 
-                        ? 'text-primary bg-muted/70' 
-                        : 'text-foreground hover:bg-muted/50'
-                    }`
-                  }
-                >
-                  Articles
-                </NavLink>
-                <NavLink 
-                  to="/about" 
-                  className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      isActive 
-                        ? 'text-primary bg-muted/70' 
-                        : 'text-foreground hover:bg-muted/50'
-                    }`
-                  }
-                >
-                  About
-                </NavLink>
-                <NavLink 
-                  to="/partners" 
-                  className={({ isActive }) => 
-                    `px-3 py-2 rounded-md text-sm font-medium bg-primary/10 border border-primary/20 text-primary transition-all`
-                  }
-                >
-                  Partner with Us
-                </NavLink>
+                {navigationItems.map((item) => (
+                  <NavItem key={item.path} item={item} isMobile={true} />
+                ))}
+                <NavItem item={partnerItem} isMobile={true} />
               </nav>
             </div>
           </div>
@@ -240,24 +163,14 @@ const Navbar = () => {
         <CommandInput placeholder="Search across the site..." />
         <CommandList>
           <CommandGroup heading="Pages">
-            <CommandItem onSelect={() => window.location.href = "/"}>
-              Home
-            </CommandItem>
-            <CommandItem onSelect={() => window.location.href = "/episodes"}>
-              Episodes
-            </CommandItem>
-            <CommandItem onSelect={() => window.location.href = "/guests"}>
-              Guests
-            </CommandItem>
-            <CommandItem onSelect={() => window.location.href = "/articles"}>
-              Articles
-            </CommandItem>
-            <CommandItem onSelect={() => window.location.href = "/about"}>
-              About
-            </CommandItem>
-            <CommandItem onSelect={() => window.location.href = "/partners"}>
-              Partner with Us
-            </CommandItem>
+            {[...navigationItems, partnerItem].map((item) => (
+              <CommandItem 
+                key={item.path} 
+                onSelect={() => handleCommandSelect(item.path)}
+              >
+                {item.label}
+              </CommandItem>
+            ))}
           </CommandGroup>
         </CommandList>
       </CommandDialog>
