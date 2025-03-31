@@ -114,7 +114,7 @@ const Navbar = () => {
                 About
               </NavLink>
               <NavLink 
-                to="/advertise" 
+                to="/partners" 
                 className={({ isActive }) => 
                   `px-3 py-2 rounded-md text-sm font-medium bg-primary/10 border border-primary/20 text-primary transition-all hover:bg-primary/20 ml-2 animate-pulse`
                 }
@@ -222,7 +222,7 @@ const Navbar = () => {
                   About
                 </NavLink>
                 <NavLink 
-                  to="/advertise" 
+                  to="/partners" 
                   className={({ isActive }) => 
                     `px-3 py-2 rounded-md text-sm font-medium bg-primary/10 border border-primary/20 text-primary transition-all`
                   }
@@ -255,7 +255,7 @@ const Navbar = () => {
             <CommandItem onSelect={() => window.location.href = "/about"}>
               About
             </CommandItem>
-            <CommandItem onSelect={() => window.location.href = "/advertise"}>
+            <CommandItem onSelect={() => window.location.href = "/partners"}>
               Partner with Us
             </CommandItem>
           </CommandGroup>
