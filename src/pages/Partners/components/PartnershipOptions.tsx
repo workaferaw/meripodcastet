@@ -33,8 +33,7 @@ const PartnershipOptions = () => {
                 "Social media mention",
                 "Basic audience analytics report",
                 "One revision round for messaging"
-              ],
-              highlighted: false
+              ]
             },
             {
               title: "Premium",
@@ -49,23 +48,16 @@ const PartnershipOptions = () => {
                 "Social media campaign",
                 "Custom landing page for tracking"
               ],
-              highlighted: true
+              isGlowing: true
             }
           ].map((option, index) => (
             <TransitionWrapper key={index} delay={index * 100}>
               <div 
-                className={`rounded-xl overflow-hidden transition-transform duration-300 hover:transform hover:scale-[1.02] h-full ${
-                  option.highlighted 
-                    ? 'relative shadow-[0_0_15px_5px_rgba(255,153,0,0.3)] border border-primary/70 bg-primary/5' 
-                    : 'glass-card'
+                className={`rounded-xl overflow-hidden transition-transform duration-300 hover:transform hover:scale-[1.02] h-full glass-card ${
+                  option.isGlowing ? 'shadow-[0_0_15px_5px_rgba(255,153,0,0.3)] border border-primary/70 bg-primary/5' : ''
                 }`}
               >
-                {option.highlighted && (
-                  <div className="absolute top-0 left-0 right-0 bg-primary text-primary-foreground text-center py-1 text-sm font-medium">
-                    Recommended
-                  </div>
-                )}
-                <div className={`p-6 ${option.highlighted ? 'pt-8' : ''}`}>
+                <div className="p-6">
                   <h3 className="text-xl font-display font-medium mb-2">{option.title}</h3>
                   <div className="text-3xl font-bold mb-3">{option.price}</div>
                   <p className="text-muted-foreground mb-6">{option.description}</p>
@@ -78,8 +70,8 @@ const PartnershipOptions = () => {
                     ))}
                   </ul>
                   <Button 
-                    className={`w-full ${option.highlighted ? 'pulse-animation shadow-[0_0_10px_rgba(255,153,0,0.4)]' : ''}`} 
-                    variant={option.highlighted ? "default" : "outline"}
+                    className={`w-full ${option.isGlowing ? 'animate-pulse shadow-[0_0_10px_rgba(255,153,0,0.4)]' : ''}`} 
+                    variant={option.isGlowing ? "default" : "outline"}
                   >
                     Get Started
                   </Button>
