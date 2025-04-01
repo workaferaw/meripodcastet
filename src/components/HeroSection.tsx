@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PlayCircle, ChevronDown } from 'lucide-react';
+import { PlayCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { SITE_NAME } from '@/utils/constants';
@@ -85,11 +85,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className, onPlay }) => {
             </div>
           </div>
         </TransitionWrapper>
-      </div>
-      
-      {/* Down arrow */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="h-8 w-8 text-primary" />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Headphones } from 'lucide-react';
+import { SITE_NAME } from '@/utils/constants';
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Footer: React.FC = () => {
           <div className="space-y-3">
             <Link to="/" className="flex items-center space-x-2">
               <Headphones className="w-5 h-5 text-primary" />
-              <span className="font-display font-bold text-lg">Meri Podcast</span>
+              <span className="font-display font-bold text-lg">{SITE_NAME}</span>
             </Link>
             <p className="text-muted-foreground text-sm">
               The premium podcast exploring fascinating ideas and stories with incredible guests.
@@ -78,7 +79,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-border mt-6 pt-4 text-sm text-muted-foreground text-center">
-          <p>© {new Date().getFullYear()} Meri Podcast. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
         </div>
       </div>
     </footer>

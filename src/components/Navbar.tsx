@@ -11,6 +11,7 @@ import {
   CommandItem 
 } from '@/components/ui/command';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { SITE_NAME } from '@/utils/constants';
 
 // Navigation items array to avoid duplication
 const navigationItems = [
@@ -100,7 +101,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <span className="font-display font-bold text-xl">Mer Podcast</span>
+              <span className="font-display font-bold text-xl">{SITE_NAME}</span>
             </Link>
             
             {/* Desktop Navigation */}
