@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search, Command } from 'lucide-react';
@@ -12,6 +11,7 @@ import {
 } from '@/components/ui/command';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { SITE_NAME } from '@/utils/constants';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 // Navigation items array to avoid duplication
 const navigationItems = [
@@ -114,10 +114,12 @@ const Navbar = () => {
             
             {/* Right-side Actions */}
             <div className="flex items-center">
+              <ThemeToggle />
+              
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="text-muted-foreground rounded-md"
+                className="text-muted-foreground rounded-md ml-2"
                 onClick={() => setIsCommandOpen(true)}
               >
                 <Search className="h-4 w-4 mr-2" />
