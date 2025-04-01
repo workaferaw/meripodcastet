@@ -40,67 +40,67 @@ const AudienceMetrics = () => {
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
-              <TransitionWrapper delay={100}>
-                <Card className="border-white/10 overflow-hidden h-full glass-card">
-                  <CardHeader className="pb-2">
-                    <div className="flex justify-between items-start">
-                      <CardTitle className="text-lg font-medium">Social Media Following</CardTitle>
-                      <div className="flex space-x-1">
-                        <Youtube className="w-5 h-5 text-gray-400" />
-                        <Instagram className="w-5 h-5 text-gray-400" />
-                        <Twitter className="w-5 h-5 text-gray-400" />
-                      </div>
-                    </div>
-                    <CardDescription>Combined followers across platforms</CardDescription>
-                  </CardHeader>
-                  <CardContent>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
+          <TransitionWrapper delay={100}>
+            <Card className="border-white/10 overflow-hidden h-full glass-card">
+              <CardHeader className="pb-2">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg font-medium">Social Media Following</CardTitle>
+                  <div className="flex space-x-1">
+                    <Youtube className="w-5 h-5 text-gray-400" />
+                    <Instagram className="w-5 h-5 text-gray-400" />
+                    <Twitter className="w-5 h-5 text-gray-400" />
+                  </div>
+                </div>
+                <CardDescription>Combined followers across platforms</CardDescription>
+              </CardHeader>
+              <CardContent>
                     <div className="text-3xl font-bold mb-1">
                       {formatStat(stats?.subscriberCount)}+
                     </div>
                     <p className="text-xs text-primary/80">{stats?.subscriberGrowth || '+8%'} from last month</p>
-                  </CardContent>
-                </Card>
-              </TransitionWrapper>
-              
-              <TransitionWrapper delay={200}>
-                <Card className="border-white/10 overflow-hidden h-full glass-card">
-                  <CardHeader className="pb-2">
-                    <div className="flex justify-between items-start">
-                      <CardTitle className="text-lg font-medium">YouTube Subscribers</CardTitle>
-                      <Youtube className="w-6 h-6 text-gray-400" />
-                    </div>
-                    <CardDescription>Growing community of engaged viewers</CardDescription>
-                  </CardHeader>
-                  <CardContent>
+              </CardContent>
+            </Card>
+          </TransitionWrapper>
+          
+          <TransitionWrapper delay={200}>
+            <Card className="border-white/10 overflow-hidden h-full glass-card">
+              <CardHeader className="pb-2">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg font-medium">YouTube Subscribers</CardTitle>
+                  <Youtube className="w-6 h-6 text-gray-400" />
+                </div>
+                <CardDescription>Growing community of engaged viewers</CardDescription>
+              </CardHeader>
+              <CardContent>
                     <div className="text-3xl font-bold mb-1">
                       {formatStat(stats?.subscriberCount)}+
                     </div>
                     <p className="text-xs text-primary/80">{stats?.subscriberGrowth || '+12%'} from last month</p>
-                  </CardContent>
-                </Card>
-              </TransitionWrapper>
-              
-              <TransitionWrapper delay={300}>
-                <Card className="border-white/10 overflow-hidden h-full glass-card">
-                  <CardHeader className="pb-2">
-                    <div className="flex justify-between items-start">
-                      <CardTitle className="text-lg font-medium">Total Viewers</CardTitle>
-                      <Users className="w-6 h-6 text-gray-400" />
-                    </div>
-                    <CardDescription>Monthly reach across all platforms</CardDescription>
-                  </CardHeader>
-                  <CardContent>
+              </CardContent>
+            </Card>
+          </TransitionWrapper>
+          
+          <TransitionWrapper delay={300}>
+            <Card className="border-white/10 overflow-hidden h-full glass-card">
+              <CardHeader className="pb-2">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg font-medium">Total Viewers</CardTitle>
+                  <Users className="w-6 h-6 text-gray-400" />
+                </div>
+                <CardDescription>Monthly reach across all platforms</CardDescription>
+              </CardHeader>
+              <CardContent>
                     <div className="text-3xl font-bold mb-1">
                       {formatStat(stats?.estimatedMonthlyViews)}+
                     </div>
                     <p className="text-xs text-primary/80">{stats?.viewGrowth || '+15%'} from last month</p>
-                  </CardContent>
-                </Card>
-              </TransitionWrapper>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              </CardContent>
+            </Card>
+          </TransitionWrapper>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <TransitionWrapper delay={400}>
                 <Card className="border-white/10 overflow-hidden h-full glass-card">
                   <CardHeader className="pb-2">
@@ -198,25 +198,25 @@ const AudienceMetrics = () => {
               </TransitionWrapper>
               
               <TransitionWrapper delay={900}>
-                <Card className="border-white/10 overflow-hidden h-full glass-card">
-                  <CardHeader className="pb-2">
-                    <div className="flex justify-between items-start">
+              <Card className="border-white/10 overflow-hidden h-full glass-card">
+                <CardHeader className="pb-2">
+                  <div className="flex justify-between items-start">
                       <CardTitle className="text-lg font-medium">Comments</CardTitle>
                       <MessageCircle className="w-10 h-10 text-gray-400" />
-                    </div>
+                  </div>
                     <CardDescription>Community interaction</CardDescription>
-                  </CardHeader>
-                  <CardContent>
+                </CardHeader>
+                <CardContent>
                     <div className="text-3xl font-bold mb-1">
                       {formatStat(stats?.avgCommentsPerVideo)}
                     </div>
                     <p className="text-xs text-primary/80">
                       {formatStat(stats?.recentComments)} total comments
                     </p>
-                  </CardContent>
-                </Card>
-              </TransitionWrapper>
-            </div>
+                </CardContent>
+              </Card>
+            </TransitionWrapper>
+        </div>
           </>
         )}
       </div>

@@ -111,98 +111,6 @@ export const MOCK_EPISODES = [
 
 export const MOCK_ARTICLES = [
   {
-    id: "1",
-    title: "The Evolution of Podcasting: From Niche to Mainstream",
-    slug: "evolution-podcasting-niche-to-mainstream",
-    excerpt: "How podcasting grew from a hobbyist medium to a billion-dollar industry that's reshaping media consumption.",
-    content: `
-      <p>Podcasting has come a long way since its inception in the early 2000s. What started as a niche medium for tech enthusiasts has transformed into a global phenomenon that attracts millions of listeners daily.</p>
-      
-      <p>The term "podcast" was first coined in 2004, combining "iPod" and "broadcast." While the name stuck, the medium has evolved far beyond Apple's iconic device. Today, podcasts are consumed on various platforms and devices, making them one of the most accessible forms of media.</p>
-      
-      <h2>The Turning Point</h2>
-      
-      <p>Many credit the true crime podcast "Serial" (2014) as the watershed moment that brought podcasting into the mainstream. Its compelling storytelling and investigative journalism captured the public imagination and demonstrated the power of the medium to reach mass audiences.</p>
-      
-      <p>Since then, the industry has seen exponential growth, with major media companies, celebrities, and brands all launching their own podcasts. The low barrier to entry has also allowed independent creators to build substantial audiences without traditional media gatekeepers.</p>
-      
-      <h2>The Business of Podcasting</h2>
-      
-      <p>What was once primarily ad-supported has developed diverse revenue streams. Subscription models, live events, merchandise, and exclusive content have all become common ways for podcasters to monetize their work.</p>
-      
-      <p>Major acquisitions and exclusive deals have also transformed the landscape. Spotify's $100 million deal with Joe Rogan and Amazon's acquisition of Wondery signaled that big tech sees enormous value in podcast content and audiences.</p>
-      
-      <h2>The Future</h2>
-      
-      <p>As technology continues to evolve, so too will podcasting. Innovations in AI, interactive content, and immersive audio experiences are already beginning to shape the next chapter in podcasting's evolution.</p>
-      
-      <p>What remains constant is the intimate connection between hosts and listeners that makes podcasting special. In a world of algorithms and short attention spans, the long-form, personal nature of podcasts continues to resonate deeply with audiences worldwide.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?q=80&w=2070&auto=format&fit=crop",
-    publishedAt: "2023-06-10T12:00:00Z",
-    author: {
-      name: "Alex Johnson",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
-    },
-    category: "Industry Insights",
-    readTime: 6
-  },
-  {
-    id: "2",
-    title: "How to Create a Successful Podcast in 2023",
-    slug: "how-to-create-successful-podcast-2023",
-    excerpt: "Expert tips and strategies for launching and growing a podcast that stands out in today's crowded audio landscape.",
-    content: `
-      <p>Starting a podcast has never been easier technically, but standing out in an increasingly crowded marketplace requires strategy, consistency, and quality. Here's how to build a successful podcast in 2023.</p>
-      
-      <h2>Find Your Unique Angle</h2>
-      
-      <p>The most successful new podcasts aren't trying to be everything to everyone. They identify a specific niche or perspective that isn't being adequately served and focus on becoming the definitive voice in that space.</p>
-      
-      <p>Ask yourself: What unique perspective or expertise can I bring? What specific audience am I trying to reach? How is my approach different from existing podcasts in this category?</p>
-      
-      <h2>Invest in Quality</h2>
-      
-      <p>While you don't need expensive equipment to start, audio quality matters more than ever as listeners have become accustomed to professional production. At minimum, invest in a decent microphone and learn basic audio editing skills.</p>
-      
-      <p>Consider factors like recording environment, background noise, and post-production. Small improvements in these areas can significantly enhance listener experience.</p>
-      
-      <h2>Be Consistent</h2>
-      
-      <p>One of the biggest factors in podcast success is consistency. Whether you publish weekly, bi-weekly, or monthly, maintain a regular schedule that your audience can count on.</p>
-      
-      <p>Many successful podcasters recommend recording several episodes before launch, creating a buffer that helps maintain your schedule even when life gets hectic.</p>
-      
-      <h2>Promotion Is Key</h2>
-      
-      <p>The "build it and they will come" approach rarely works in podcasting. Develop a promotion strategy that includes social media, email marketing, cross-promotion with complementary podcasts, and leveraging any existing platforms you have.</p>
-      
-      <p>Consider creating "audiograms" or short video clips that can be shared on social platforms to give potential listeners a taste of your content.</p>
-      
-      <h2>Engage With Your Community</h2>
-      
-      <p>Successful podcasts build communities, not just audiences. Encourage listener feedback, answer questions, and incorporate audience suggestions into future episodes.</p>
-      
-      <p>This two-way relationship not only builds loyalty but also provides valuable insight into what your audience wants more of.</p>
-      
-      <h2>Monetization Takes Time</h2>
-      
-      <p>While monetization is possible, it typically takes time to build an audience large enough to attract sponsors. Focus first on creating valuable content and growing your listener base.</p>
-      
-      <p>As you grow, explore multiple revenue streams rather than relying solely on advertising. These might include premium content, merchandise, live events, or crowdfunding through platforms like Patreon.</p>
-      
-      <p>With dedication, quality, and strategic thinking, you can build a podcast that not only reaches an audience but makes a genuine impact in your chosen field.</p>
-    `,
-    featuredImage: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2070&auto=format&fit=crop",
-    publishedAt: "2023-05-25T12:00:00Z",
-    author: {
-      name: "Maya Patel",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
-    },
-    category: "Content Creation",
-    readTime: 8
-  },
-  {
     id: "3",
     title: "The Science of Sound: Why Audio Storytelling Is So Powerful",
     slug: "science-sound-audio-storytelling-powerful",
@@ -329,5 +237,160 @@ export const MOCK_ARTICLES = [
     },
     category: "Business",
     readTime: 9
+  },
+  {
+    id: "12",
+    title: "Podcast Analytics: Understanding Your Audience",
+    slug: "podcast-analytics-audience",
+    excerpt: "A deep dive into podcast analytics and how to use data to grow your show.",
+    content: `
+      <p>Understanding podcast analytics is crucial for growth and success. Here's how to make sense of your data and use it effectively.</p>
+      
+      <h2>Key Metrics</h2>
+      
+      <p>Focus on important metrics like downloads, listener retention, and engagement rates.</p>
+      
+      <p>Understand what each metric means and how to interpret it.</p>
+      
+      <h2>Listener Demographics</h2>
+      
+      <p>Use analytics to understand your audience's age, location, and listening habits.</p>
+      
+      <p>Tailor your content to better serve your core audience.</p>
+      
+      <h2>Engagement Patterns</h2>
+      
+      <p>Analyze when and how listeners engage with your content.</p>
+      
+      <p>Use this information to optimize your release schedule and content structure.</p>
+      
+      <h2>Platform Insights</h2>
+      
+      <p>Different platforms provide different analytics. Learn to use each platform's insights effectively.</p>
+      
+      <p>Compare metrics across platforms to understand your overall performance.</p>
+      
+      <h2>Content Performance</h2>
+      
+      <p>Track which episodes perform best and why.</p>
+      
+      <p>Use this information to guide future content decisions.</p>
+      
+      <h2>Growth Tracking</h2>
+      
+      <p>Monitor your podcast's growth over time.</p>
+      
+      <p>Identify trends and patterns that indicate success or areas for improvement.</p>
+      
+      <h2>Monetization Impact</h2>
+      
+      <p>Track how different monetization strategies affect your metrics.</p>
+      
+      <p>Use data to optimize your revenue streams.</p>
+      
+      <h2>Future Planning</h2>
+      
+      <p>Use analytics to inform your long-term strategy.</p>
+      
+      <p>Make data-driven decisions about content and growth.</p>
+    `,
+    featuredImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    publishedAt: "2022-07-20T12:00:00Z",
+    author: {
+      name: "Dr. Thomas Anderson",
+      avatar: "https://randomuser.me/api/portraits/men/88.jpg"
+    },
+    category: "Analytics",
+    readTime: 7
+  },
+  {
+    id: "13",
+    title: "The Future of Audio Technology",
+    slug: "future-audio-technology",
+    excerpt: "Exploring cutting-edge developments in audio technology and their impact on podcasting.",
+    content: `
+      <p>Audio technology is evolving rapidly, bringing new possibilities to podcasting.</p>
+      // ... rest of content ...
+    `,
+    featuredImage: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop",
+    publishedAt: "2022-06-15T12:00:00Z",
+    author: {
+      name: "Dr. Emily Chen",
+      avatar: "https://randomuser.me/api/portraits/women/45.jpg"
+    },
+    category: "Technology",
+    readTime: 5
+  },
+  {
+    id: "14",
+    title: "Building a Global Podcast Network",
+    slug: "building-global-podcast-network",
+    excerpt: "Lessons learned from scaling a podcast network across multiple countries and cultures.",
+    content: `
+      <p>Creating a global podcast network requires careful consideration of cultural differences and local markets.</p>
+      // ... rest of content ...
+    `,
+    featuredImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format&fit=crop",
+    publishedAt: "2022-05-20T12:00:00Z",
+    author: {
+      name: "Marcus Rodriguez",
+      avatar: "https://randomuser.me/api/portraits/men/67.jpg"
+    },
+    category: "Business",
+    readTime: 7
+  },
+  {
+    id: "15",
+    title: "The Art of Podcast Storytelling",
+    slug: "art-podcast-storytelling",
+    excerpt: "Mastering narrative techniques for compelling podcast content.",
+    content: `
+      <p>Great podcast storytelling combines structure, pacing, and emotional resonance.</p>
+      // ... rest of content ...
+    `,
+    featuredImage: "https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=2070&auto=format&fit=crop",
+    publishedAt: "2022-04-25T12:00:00Z",
+    author: {
+      name: "Sarah Mitchell",
+      avatar: "https://randomuser.me/api/portraits/women/33.jpg"
+    },
+    category: "Content Creation",
+    readTime: 6
+  },
+  {
+    id: "16",
+    title: "Podcast Marketing in the Age of Social Media",
+    slug: "podcast-marketing-social-media",
+    excerpt: "Effective strategies for promoting your podcast across social platforms.",
+    content: `
+      <p>Social media has transformed how podcasts reach and engage with audiences.</p>
+      // ... rest of content ...
+    `,
+    featuredImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2070&auto=format&fit=crop",
+    publishedAt: "2022-03-30T12:00:00Z",
+    author: {
+      name: "David Kim",
+      avatar: "https://randomuser.me/api/portraits/men/89.jpg"
+    },
+    category: "Marketing",
+    readTime: 5
+  },
+  {
+    id: "17",
+    title: "The Psychology of Podcast Listening",
+    slug: "psychology-podcast-listening",
+    excerpt: "Understanding why people listen to podcasts and how to create addictive content.",
+    content: `
+      <p>Podcast listening habits reveal fascinating insights about human behavior and preferences.</p>
+      // ... rest of content ...
+    `,
+    featuredImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    publishedAt: "2022-02-15T12:00:00Z",
+    author: {
+      name: "Dr. Rachel Thompson",
+      avatar: "https://randomuser.me/api/portraits/women/78.jpg"
+    },
+    category: "Psychology",
+    readTime: 7
   }
 ];

@@ -1,11 +1,7 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Article } from '@/types';
-import BlurImage from '@/components/ui/BlurImage';
-import { formatDate } from '@/utils/animations';
+import { formatDate } from '@/utils/formatDate';
 
 interface ArticleCardProps {
   article: Article;
@@ -21,50 +17,28 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   const isFeatured = variant === 'featured';
   
   return (
-    <Link 
-      to={`/articles/${article.slug}`}
-      className={cn(
-        'group block overflow-hidden transition-all duration-300 hover:shadow-lg',
-        isFeatured ? 'glass-panel rounded-xl' : 'glass-card rounded-lg',
-        className
-      )}
-    >
-      <div className={cn(
-        'relative overflow-hidden',
-        isFeatured ? 'aspect-[21/9]' : 'aspect-[16/9]'
-      )}>
-        <BlurImage
-          src={article.featuredImage}
+    <div className={cn(
+      'group relative overflow-hidden rounded-3xl bg-card border transition-all duration-300 hover:shadow-lg h-full flex flex-col',
+      className
+    )}>
+      <div className="aspect-[4/3] relative flex-shrink-0">
+        <img 
+          src={article.featuredImage} 
           alt={article.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
-      
-      <div className={cn(
-        'p-4',
-        isFeatured && 'p-6'
-      )}>
-        <h3 className={cn(
-          'font-display font-medium line-clamp-2 transition-colors',
-          isFeatured ? 'text-xl mb-2' : 'text-lg mb-2',
-          'group-hover:text-primary'
-        )}>
-          {article.title}
+      <div className="p-6 flex flex-col flex-grow">
+        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
+          {article.category}
+        </span>
+        <h3 className="text-xl font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors min-h-[3.5rem] flex-shrink-0">
+          {article.title || 'Untitled Article'}
         </h3>
-        
-        <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{article.excerpt}</p>
-        
-        <div className="flex items-center text-xs text-muted-foreground">
-          <time dateTime={article.publishedAt} className="mr-4">{formatDate(article.publishedAt)}</time>
-          
-          <div className="flex items-center space-x-1">
-            <Clock className="w-3 h-3" />
-            <span>{article.readTime} min read</span>
-          </div>
-        </div>
+        <p className="text-sm text-muted-foreground mt-auto">{formatDate(article.publishedAt)}</p>
       </div>
-    </Link>
+    </div>
   );
 };
 

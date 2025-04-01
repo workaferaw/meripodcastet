@@ -24,7 +24,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className, onPlay }) => {
       <div className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
       <div className="absolute bottom-20 right-[10%] w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
       
-      <div className="container relative z-10 px-4 py-20 mx-auto text-center">
+      <div className="container relative z-10 px-6 sm:px-4 py-20 mx-auto text-center">
         <TransitionWrapper animation="fade-in">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 max-w-4xl mx-auto">
             Conversations That Expand Your Perspective
