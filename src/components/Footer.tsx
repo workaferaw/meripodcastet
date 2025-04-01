@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_NAME } from '@/utils/constants';
+import { Youtube, Tiktok, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -50,27 +52,49 @@ const Footer: React.FC = () => {
             </div>
             
             <div>
-              <h3 className="font-display font-medium text-base mb-3">Legal</h3>
-              <nav className="flex flex-col space-y-2">
+              <h3 className="font-display font-medium text-base mb-3">Follow Us</h3>
+              <div className="flex flex-col space-y-2">
                 <Link 
-                  to="/privacy" 
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  to="https://youtube.com" 
+                  target="_blank"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
                 >
-                  Privacy Policy
+                  <Youtube size={16} />
+                  YouTube
                 </Link>
                 <Link 
-                  to="/terms" 
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  to="https://tiktok.com" 
+                  target="_blank"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
                 >
-                  Terms of Use
+                  <Tiktok size={16} />
+                  TikTok
                 </Link>
                 <Link 
-                  to="/contact" 
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  to="https://instagram.com" 
+                  target="_blank"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
                 >
-                  Contact Us
+                  <Instagram size={16} />
+                  Instagram
                 </Link>
-              </nav>
+                <Link 
+                  to="https://linkedin.com" 
+                  target="_blank"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
+                >
+                  <Linkedin size={16} />
+                  LinkedIn
+                </Link>
+                <Link 
+                  to="https://x.com" 
+                  target="_blank"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
+                >
+                  <Twitter size={16} />
+                  X
+                </Link>
+              </div>
             </div>
           </div>
         </div>
