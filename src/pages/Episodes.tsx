@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Headphones, Search, Tag, User } from 'lucide-react';
@@ -12,6 +13,9 @@ import { Button } from '@/components/ui/button';
 import { findGuestsByIds } from '@/utils/guestData';
 import GuestCard from '@/components/GuestCard';
 import { Card, CardContent } from '@/components/ui/card';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Episodes = () => {
   const { 
@@ -23,7 +27,12 @@ const Episodes = () => {
   } = useYoutubeData();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null);
+  const [browseBy, setBrowseBy] = useState<'season' | 'sector'>('sector');
+  const [selectedSeason, setSelectedSeason] = useState<string | null>(null);
   const navigate = useNavigate();
+  
+  // For demo purposes, let's create some season options
+  const seasons = ["Season 1", "Season 2", "Season 3", "Season 4"];
   
   // Filter episodes based on search
   const filteredEpisodes = episodes.filter(episode => 
@@ -43,23 +52,19 @@ const Episodes = () => {
     }
   };
   
+  const handleSeasonClick = (season: string) => {
+    if (selectedSeason === season) {
+      setSelectedSeason(null);
+    } else {
+      setSelectedSeason(null); // In a real app, we would filter by season here
+      setSelectedSeason(season);
+    }
+  };
+  
   return (
     <>
       <section className="pt-20 pb-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <TransitionWrapper delay={100}>
-            <div className="flex items-center justify-center mb-2">
-              <Headphones className="w-8 h-8 text-primary mr-2" />
-              <h1 className="text-4xl font-display font-bold text-center">Episodes</h1>
-            </div>
-          </TransitionWrapper>
-          
-          <TransitionWrapper delay={100}>
-            <p className="text-xl text-muted-foreground text-center max-w-2xl mx-auto mb-8">
-              Explore our collection of thought-provoking conversations with inspiring guests.
-            </p>
-          </TransitionWrapper>
-          
           <TransitionWrapper delay={200} className="max-w-md mx-auto relative mb-8">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
@@ -73,38 +78,72 @@ const Episodes = () => {
             </div>
           </TransitionWrapper>
           
-          {categories.length > 0 && (
-            <TransitionWrapper delay={300}>
-              <div className="max-w-3xl mx-auto mb-6">
-                <h3 className="text-center text-sm font-medium uppercase tracking-wider text-muted-foreground mb-3">Browse by sector</h3>
-                <Card className="bg-card/50 border-border/50">
-                  <CardContent className="p-4">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                      <Button 
-                        variant={selectedCategory === null ? "default" : "outline"}
-                        size="sm"
-                        onClick={() => setSelectedCategory(null)}
-                        className="w-full"
-                      >
-                        All Episodes
-                      </Button>
-                      {categories.map(category => (
+          <TransitionWrapper delay={300}>
+            <div className="max-w-3xl mx-auto mb-6">
+              <Tabs defaultValue="sector" className="w-full" onValueChange={(value) => setBrowseBy(value as 'season' | 'sector')}>
+                <TabsList className="grid w-full grid-cols-2 mb-4">
+                  <TabsTrigger value="sector">Browse by Sector</TabsTrigger>
+                  <TabsTrigger value="season">Browse by Season</TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="sector">
+                  <Card className="bg-card/50 border-border/50">
+                    <CardContent className="p-4">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                         <Button 
-                          key={category}
-                          variant={selectedCategory === category ? "default" : "outline"}
+                          variant={selectedCategory === null ? "default" : "outline"}
                           size="sm"
-                          onClick={() => handleCategoryClick(category)}
+                          onClick={() => setSelectedCategory(null)}
                           className="w-full"
                         >
-                          {category}
+                          All Episodes
                         </Button>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </TransitionWrapper>
-          )}
+                        {categories.map(category => (
+                          <Button 
+                            key={category}
+                            variant={selectedCategory === category ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => handleCategoryClick(category)}
+                            className="w-full"
+                          >
+                            {category}
+                          </Button>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+                
+                <TabsContent value="season">
+                  <Card className="bg-card/50 border-border/50">
+                    <CardContent className="p-4">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <Button 
+                          variant={selectedSeason === null ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => setSelectedSeason(null)}
+                          className="w-full"
+                        >
+                          All Seasons
+                        </Button>
+                        {seasons.map(season => (
+                          <Button 
+                            key={season}
+                            variant={selectedSeason === season ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => handleSeasonClick(season)}
+                            className="w-full"
+                          >
+                            {season}
+                          </Button>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              </Tabs>
+            </div>
+          </TransitionWrapper>
         </div>
       </section>
       
