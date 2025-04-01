@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_NAME } from '@/utils/constants';
-import { Youtube, Tiktok, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Youtube, TikTok, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
                   target="_blank"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
                 >
-                  <Tiktok size={16} />
+                  <TikTok size={16} />
                   TikTok
                 </Link>
                 <Link 
