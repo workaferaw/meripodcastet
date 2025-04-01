@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { PlayCircle, Eye, Video, Youtube, Instagram, Twitter, Users } from 'lucide-react';
 import TransitionWrapper from '@/components/TransitionWrapper';
@@ -26,9 +27,9 @@ const AudienceMetrics = () => {
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-lg font-medium">Social Media Following</CardTitle>
                   <div className="flex space-x-1">
-                    <Youtube className="w-5 h-5 text-red-500" />
-                    <Instagram className="w-5 h-5 text-pink-500" />
-                    <Twitter className="w-5 h-5 text-blue-400" />
+                    <Youtube className="w-5 h-5 text-gray-400" />
+                    <Instagram className="w-5 h-5 text-gray-400" />
+                    <Twitter className="w-5 h-5 text-gray-400" />
                   </div>
                 </div>
                 <CardDescription>Combined followers across platforms</CardDescription>
@@ -45,7 +46,7 @@ const AudienceMetrics = () => {
               <CardHeader className="pb-2">
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-lg font-medium">YouTube Subscribers</CardTitle>
-                  <Youtube className="w-6 h-6 text-red-500" />
+                  <Youtube className="w-6 h-6 text-gray-400" />
                 </div>
                 <CardDescription>Growing community of engaged viewers</CardDescription>
               </CardHeader>
@@ -61,7 +62,7 @@ const AudienceMetrics = () => {
               <CardHeader className="pb-2">
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-lg font-medium">Total Viewers</CardTitle>
-                  <Users className="w-6 h-6 text-primary/80" />
+                  <Users className="w-6 h-6 text-gray-400" />
                 </div>
                 <CardDescription>Monthly reach across all platforms</CardDescription>
               </CardHeader>
@@ -79,21 +80,21 @@ const AudienceMetrics = () => {
               title: "Watch Hours",
               value: "31,000+",
               description: "Monthly watch time",
-              icon: <PlayCircle className="w-10 h-10 text-primary/80" />,
+              icon: <PlayCircle className="w-10 h-10 text-gray-400" />,
               trend: "+12% from last month"
             },
             {
               title: "Views",
               value: "820,000+",
               description: "Monthly views",
-              icon: <Eye className="w-10 h-10 text-primary/80" />,
+              icon: <Eye className="w-10 h-10 text-gray-400" />,
               trend: "+8% from last month"
             },
             {
               title: "Videos",
               value: "124",
               description: "Total episodes",
-              icon: <Video className="w-10 h-10 text-primary/80" />,
+              icon: <Video className="w-10 h-10 text-gray-400" />,
               trend: "8 new this month"
             }
           ].map((metric, index) => (
