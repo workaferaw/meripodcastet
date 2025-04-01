@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Headphones, Search, Tag, User } from 'lucide-react';
@@ -22,17 +21,17 @@ const Episodes = () => {
     episodes, 
     loading, 
     categories, 
-    selectedCategory, 
-    setSelectedCategory 
+    selectedCategory,
+    setSelectedCategory,
+    seasonPlaylists,
+    sectorPlaylists,
+    selectedPlaylistId,
+    setSelectedPlaylistId
   } = useYoutubeData();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null);
   const [browseBy, setBrowseBy] = useState<'season' | 'sector'>('sector');
-  const [selectedSeason, setSelectedSeason] = useState<string | null>(null);
   const navigate = useNavigate();
-  
-  // For demo purposes, let's create some season options
-  const seasons = ["Season 1", "Season 2", "Season 3", "Season 4"];
   
   // Filter episodes based on search
   const filteredEpisodes = episodes.filter(episode => 
@@ -52,12 +51,11 @@ const Episodes = () => {
     }
   };
   
-  const handleSeasonClick = (season: string) => {
-    if (selectedSeason === season) {
-      setSelectedSeason(null);
+  const handlePlaylistClick = (playlistId: string) => {
+    if (selectedPlaylistId === playlistId) {
+      setSelectedPlaylistId(null);
     } else {
-      setSelectedSeason(null); // In a real app, we would filter by season here
-      setSelectedSeason(season);
+      setSelectedPlaylistId(playlistId);
     }
   };
   
@@ -80,7 +78,14 @@ const Episodes = () => {
           
           <TransitionWrapper delay={300}>
             <div className="max-w-3xl mx-auto mb-6">
-              <Tabs defaultValue="sector" className="w-full" onValueChange={(value) => setBrowseBy(value as 'season' | 'sector')}>
+              <Tabs 
+                defaultValue="sector" 
+                className="w-full" 
+                onValueChange={(value) => {
+                  setBrowseBy(value as 'season' | 'sector');
+                  setSelectedPlaylistId(null); // Reset playlist when switching tabs
+                }}
+              >
                 <TabsList className="grid w-full grid-cols-2 mb-4">
                   <TabsTrigger value="sector">Browse by Sector</TabsTrigger>
                   <TabsTrigger value="season">Browse by Season</TabsTrigger>
@@ -91,22 +96,22 @@ const Episodes = () => {
                     <CardContent className="p-4">
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                         <Button 
-                          variant={selectedCategory === null ? "default" : "outline"}
+                          variant={selectedPlaylistId === null ? "default" : "outline"}
                           size="sm"
-                          onClick={() => setSelectedCategory(null)}
+                          onClick={() => setSelectedPlaylistId(null)}
                           className="w-full"
                         >
                           All Episodes
                         </Button>
-                        {categories.map(category => (
+                        {sectorPlaylists.map(playlist => (
                           <Button 
-                            key={category}
-                            variant={selectedCategory === category ? "default" : "outline"}
+                            key={playlist.id}
+                            variant={selectedPlaylistId === playlist.id ? "default" : "outline"}
                             size="sm"
-                            onClick={() => handleCategoryClick(category)}
+                            onClick={() => handlePlaylistClick(playlist.id)}
                             className="w-full"
                           >
-                            {category}
+                            {playlist.title.replace(" Sector", "")}
                           </Button>
                         ))}
                       </div>
@@ -119,22 +124,22 @@ const Episodes = () => {
                     <CardContent className="p-4">
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                         <Button 
-                          variant={selectedSeason === null ? "default" : "outline"}
+                          variant={selectedPlaylistId === null ? "default" : "outline"}
                           size="sm"
-                          onClick={() => setSelectedSeason(null)}
+                          onClick={() => setSelectedPlaylistId(null)}
                           className="w-full"
                         >
                           All Seasons
                         </Button>
-                        {seasons.map(season => (
+                        {seasonPlaylists.map(playlist => (
                           <Button 
-                            key={season}
-                            variant={selectedSeason === season ? "default" : "outline"}
+                            key={playlist.id}
+                            variant={selectedPlaylistId === playlist.id ? "default" : "outline"}
                             size="sm"
-                            onClick={() => handleSeasonClick(season)}
+                            onClick={() => handlePlaylistClick(playlist.id)}
                             className="w-full"
                           >
-                            {season}
+                            {playlist.title}
                           </Button>
                         ))}
                       </div>
@@ -156,9 +161,12 @@ const Episodes = () => {
           ) : filteredEpisodes.length === 0 ? (
             <div className="text-center py-12 glass-card rounded-lg">
               <h3 className="text-xl font-medium mb-2">No episodes found</h3>
-              <p className="text-muted-foreground mb-6">Try adjusting your search criteria or clear the category filter.</p>
+              <p className="text-muted-foreground mb-6">Try adjusting your search criteria or clear the filters.</p>
               {selectedCategory && (
-                <Button onClick={() => setSelectedCategory(null)}>Clear Category Filter</Button>
+                <Button onClick={() => setSelectedCategory(null)} className="mr-2">Clear Category Filter</Button>
+              )}
+              {selectedPlaylistId && (
+                <Button onClick={() => setSelectedPlaylistId(null)}>Clear Playlist Filter</Button>
               )}
             </div>
           ) : (
