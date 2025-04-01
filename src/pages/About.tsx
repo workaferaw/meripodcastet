@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Youtube, Instagram, Twitter, Linkedin, MessageSquare, FileText } from 'lucide-react';
 import TransitionWrapper from '@/components/TransitionWrapper';
@@ -129,48 +130,6 @@ const About = () => {
               Our story, mission, and the team behind {SITE_NAME}.
             </p>
           </TransitionWrapper>
-        </div>
-      </section>
-      
-      {/* Statistics Dashboard */}
-      <section className="py-12 bg-secondary/40">
-        <div className="container mx-auto px-4">
-          <TransitionWrapper>
-            <h2 className="text-3xl font-display font-bold text-center mb-10">Our Reach</h2>
-          </TransitionWrapper>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <TransitionWrapper delay={100}>
-              <div className="glass-card p-8 rounded-xl">
-                <div className="flex items-center mb-4">
-                  <div className="flex space-x-2">
-                    <Youtube className="w-6 h-6 text-red-500" />
-                    <Instagram className="w-6 h-6 text-pink-500" />
-                    <Twitter className="w-6 h-6 text-blue-400" />
-                    <Linkedin className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-2xl font-display font-medium ml-4">Social Media Following</h3>
-                </div>
-                <div className="mt-4">
-                  <p className="text-4xl font-bold text-primary">370k+</p>
-                  <p className="text-muted-foreground mt-2">Combined followers across all platforms</p>
-                </div>
-              </div>
-            </TransitionWrapper>
-            
-            <TransitionWrapper delay={200}>
-              <div className="glass-card p-8 rounded-xl">
-                <div className="flex items-center mb-4">
-                  <Youtube className="w-8 h-8 text-red-500" />
-                  <h3 className="text-2xl font-display font-medium ml-4">YouTube Subscribers</h3>
-                </div>
-                <div className="mt-4">
-                  <p className="text-4xl font-bold text-primary">155k+</p>
-                  <p className="text-muted-foreground mt-2">Growing community of engaged viewers</p>
-                </div>
-              </div>
-            </TransitionWrapper>
-          </div>
         </div>
       </section>
       
