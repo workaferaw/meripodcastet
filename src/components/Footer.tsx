@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_NAME } from '@/utils/constants';
-import { Youtube, TikTok, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Youtube, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -67,7 +67,24 @@ const Footer: React.FC = () => {
                   target="_blank"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
                 >
-                  <TikTok size={16} />
+                  {/* Using a custom SVG for TikTok since it's not available in lucide-react */}
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    className="lucide"
+                  >
+                    <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+                    <path d="M16 8v8"></path>
+                    <path d="M12 16v-8a4 4 0 0 1 4-4"></path>
+                    <path d="M22 8.5a7 7 0 0 1-7-7"></path>
+                  </svg>
                   TikTok
                 </Link>
                 <Link 
