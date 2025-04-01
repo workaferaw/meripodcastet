@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { BarChart3, PlayCircle, Eye, Video, Youtube, Instagram, Twitter, Users } from 'lucide-react';
+import { PlayCircle, Eye, Video, Youtube, Instagram, Twitter, Users } from 'lucide-react';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -9,8 +8,7 @@ const AudienceMetrics = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <TransitionWrapper>
-          <div className="flex items-center justify-center space-x-2 mb-8">
-            <BarChart3 className="w-6 h-6 text-primary" />
+          <div className="flex items-center justify-center mb-8">
             <h2 className="text-3xl font-display font-bold text-center">Audience Metrics</h2>
           </div>
         </TransitionWrapper>

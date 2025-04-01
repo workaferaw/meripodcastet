@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Headphones } from 'lucide-react';
 import { SITE_NAME } from '@/utils/constants';
 
 const Footer: React.FC = () => {
@@ -11,9 +9,8 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About the podcast */}
           <div className="space-y-3">
-            <Link to="/" className="flex items-center space-x-2">
-              <Headphones className="w-5 h-5 text-primary" />
-              <span className="font-display font-bold text-lg">{SITE_NAME}</span>
+            <Link to="/" className="font-display font-bold text-lg">
+              {SITE_NAME}
             </Link>
             <p className="text-muted-foreground text-sm">
               The premium podcast exploring fascinating ideas and stories with incredible guests.
