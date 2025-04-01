@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import Guests from "./pages/Guests";
 import GuestDetail from "./pages/GuestDetail";
 import { ThemeProvider } from "./components/ui/theme-provider";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <BrowserRouter>
+          <ScrollToTop />
           <div className="min-h-screen flex flex-col">
             <Navbar />
             <main className="pt-16 flex-grow">
