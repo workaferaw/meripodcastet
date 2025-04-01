@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { PlayCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { SITE_NAME } from '@/utils/constants';
 import TransitionWrapper from './TransitionWrapper';
+import { Link } from 'react-router-dom';
 
 interface HeroSectionProps {
   className?: string;
@@ -54,7 +54,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className, onPlay }) => {
               className="glass-card"
               asChild
             >
-              <a href="#episodes">Browse All Episodes</a>
+              <Link to="/episodes">Browse All Episodes</Link>
             </Button>
           </div>
         </TransitionWrapper>
