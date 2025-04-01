@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Headphones, Search, Tag, User } from 'lucide-react';
@@ -48,7 +47,7 @@ const Episodes = () => {
     <>
       <section className="pt-20 pb-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <TransitionWrapper>
+          <TransitionWrapper delay={100}>
             <div className="flex items-center justify-center mb-2">
               <Headphones className="w-8 h-8 text-primary mr-2" />
               <h1 className="text-4xl font-display font-bold text-center">Episodes</h1>
