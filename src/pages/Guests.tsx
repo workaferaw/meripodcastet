@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Users, UserPlus } from 'lucide-react';
+import { UserPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import GuestCard from '@/components/GuestCard';
@@ -12,13 +12,6 @@ const Guests = () => {
     <>
       <section className="pt-20 pb-8 bg-muted/30">
         <div className="container mx-auto px-4">
-          <TransitionWrapper>
-            <div className="flex items-center justify-center mb-2">
-              <Users className="w-8 h-8 text-primary mr-2" />
-              <h1 className="text-4xl font-display font-bold text-center">Guests</h1>
-            </div>
-          </TransitionWrapper>
-          
           <TransitionWrapper delay={100}>
             <div className="flex flex-col sm:flex-row items-center justify-between max-w-4xl mx-auto">
               <p className="text-xl text-muted-foreground text-center mb-4 sm:mb-0">

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { BookOpen, Search, Clock } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -28,14 +27,7 @@ const Articles = () => {
   return (
     <>
       <section className="pt-16 pb-8 bg-muted/30">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <TransitionWrapper>
-            <div className="flex items-center mb-6">
-              <BookOpen className="w-8 h-8 text-primary mr-3" />
-              <h1 className="text-3xl font-display font-bold">Articles</h1>
-            </div>
-          </TransitionWrapper>
-          
+        <div className="container mx-auto px-4 max-w-5xl">          
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <TransitionWrapper delay={100} className="md:col-span-1">
               <Card className="bg-card/80 backdrop-blur-sm border border-white/10 shadow-md sticky top-20">

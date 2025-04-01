@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Users, Youtube, Instagram, Twitter, Linkedin, MessageSquare, FileText } from 'lucide-react';
+import { Youtube, Instagram, Twitter, Linkedin, MessageSquare, FileText } from 'lucide-react';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import BlurImage from '@/components/ui/BlurImage';
 import { SITE_NAME } from '@/utils/constants';
@@ -125,13 +124,6 @@ const About = () => {
     <>
       <section className="pt-20 pb-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <TransitionWrapper>
-            <div className="flex items-center justify-center mb-2">
-              <Users className="w-8 h-8 text-primary mr-2" />
-              <h1 className="text-4xl font-display font-bold text-center">About Us</h1>
-            </div>
-          </TransitionWrapper>
-          
           <TransitionWrapper delay={100}>
             <p className="text-xl text-muted-foreground text-center max-w-2xl mx-auto">
               Our story, mission, and the team behind {SITE_NAME}.
