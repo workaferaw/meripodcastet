@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BarChart3, PlayCircle, Eye, Video, BarChart2, Youtube, Instagram, Twitter, Linkedin, Users } from 'lucide-react';
+import { BarChart3, PlayCircle, Eye, Video, Youtube, Instagram, Twitter, Users } from 'lucide-react';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -75,7 +75,7 @@ const AudienceMetrics = () => {
           </TransitionWrapper>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
             {
               title: "Watch Hours",
@@ -97,14 +97,7 @@ const AudienceMetrics = () => {
               description: "Total episodes",
               icon: <Video className="w-10 h-10 text-primary/80" />,
               trend: "8 new this month"
-            },
-            {
-              title: "Engagement",
-              value: "68%",
-              description: "Average completion rate",
-              icon: <BarChart2 className="w-10 h-10 text-primary/80" />,
-              trend: "+5% from last month"
-            },
+            }
           ].map((metric, index) => (
             <TransitionWrapper key={index} delay={400 + index * 100}>
               <Card className="border-white/10 overflow-hidden h-full glass-card">
