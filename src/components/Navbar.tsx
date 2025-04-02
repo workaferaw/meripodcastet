@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Settings } from 'lucide-react';
+import { Menu, X, Search, Command } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { 
+  CommandDialog, 
+  CommandInput, 
+  CommandList, 
+  CommandGroup, 
+  CommandItem 
+} from '@/components/ui/command';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { SITE_NAME } from '@/utils/constants';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
@@ -56,6 +63,7 @@ const NavItem = ({ item, isMobile = false }) => {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
   const location = useLocation();
   const isMobile = useIsMobile();
   
@@ -63,6 +71,19 @@ const Navbar = () => {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
+  
+  // Close command menu on Escape
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setIsCommandOpen((open) => !open);
+      }
+    };
+    
+    document.addEventListener('keydown', down);
+    return () => document.removeEventListener('keydown', down);
+  }, []);
   
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -99,10 +120,13 @@ const Navbar = () => {
                 variant="ghost" 
                 size="sm" 
                 className="text-muted-foreground rounded-md ml-2"
-                onClick={() => window.location.href = '/dashboard-control-panel-23x8m/auth'}
+                onClick={() => setIsCommandOpen(true)}
               >
-                <Settings className="h-4 w-4 mr-2" />
-                <span className="hidden md:inline">Admin</span>
+                <Search className="h-4 w-4 mr-2" />
+                <span className="hidden md:inline">Search</span>
+                <kbd className="ml-2 hidden md:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
+                  <span className="text-xs">⌘</span>K
+                </kbd>
               </Button>
               
               {/* Mobile Menu Button */}
@@ -136,6 +160,23 @@ const Navbar = () => {
           </div>
         )}
       </header>
+      
+      {/* Command Menu (Search) */}
+      <CommandDialog open={isCommandOpen} onOpenChange={setIsCommandOpen}>
+        <CommandInput placeholder="Search across the site..." />
+        <CommandList>
+          <CommandGroup heading="Pages">
+            {[...navigationItems, partnerItem].map((item) => (
+              <CommandItem 
+                key={item.path} 
+                onSelect={() => handleCommandSelect(item.path)}
+              >
+                {item.label}
+              </CommandItem>
+            ))}
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
     </>
   );
 };
