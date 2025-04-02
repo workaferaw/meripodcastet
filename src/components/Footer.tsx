@@ -123,22 +123,15 @@ const Footer: React.FC = () => {
                 >
                   <Lock size={16} />
                   Admin Dashboard
+                  import { Youtube, Instagram, Linkedin, Twitter, Lock } from 'lucide-react';
                 </Link>
               </div>
+
+              import { Youtube, Instagram, Linkedin, Twitter, Lock } from 'lucide-react';
+
             </div>
           </div>
         </div>
-        
-        <div className="border-t border-border mt-6 pt-4 text-sm text-muted-foreground text-center">
-          <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
-
         
         <div className="border-t border-border mt-6 pt-4 text-sm text-muted-foreground text-center">
           <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
