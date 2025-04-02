@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_NAME } from '@/utils/constants';
-import { Youtube, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Youtube, Instagram, Linkedin, Twitter, Lock } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -112,8 +112,33 @@ const Footer: React.FC = () => {
                 </Link>
               </div>
             </div>
+
+            {/* New Admin Section */}
+            <div>
+              <h3 className="font-display font-medium text-base mb-3">Admin</h3>
+              <div className="flex flex-col space-y-2">
+                <Link 
+                  to="/dashboard-control-panel-23x8m/auth"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2"
+                >
+                  <Lock size={16} />
+                  Admin Dashboard
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
+        
+        <div className="border-t border-border mt-6 pt-4 text-sm text-muted-foreground text-center">
+          <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
         
         <div className="border-t border-border mt-6 pt-4 text-sm text-muted-foreground text-center">
           <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
